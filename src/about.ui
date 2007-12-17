@@ -1,0 +1,191 @@
+<ui version="4.0" >
+ <class>dlgAbout</class>
+ <widget class="QDialog" name="dlgAbout" >
+  <property name="windowModality" >
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>489</width>
+    <height>321</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>About Equipmant</string>
+  </property>
+  <widget class="QTextBrowser" name="textBrowser" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>84</y>
+     <width>471</width>
+     <height>190</height>
+    </rect>
+   </property>
+   <property name="horizontalScrollBarPolicy" >
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="autoFormatting" >
+    <set>QTextEdit::AutoNone</set>
+   </property>
+   <property name="lineWrapMode" >
+    <enum>QTextEdit::WidgetWidth</enum>
+   </property>
+   <property name="lineWrapColumnOrWidth" >
+    <number>80</number>
+   </property>
+   <property name="html" >
+    <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal; text-decoration:none;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:10pt; font-weight:600; text-decoration: underline; color:#2f4f4f;">About Equipmant&lt;/span>&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600; text-decoration: underline; color:#2f4f4f;">&lt;span style=" font-weight:400; text-decoration:none;">Equipmant comes with &lt;/span>&lt;span style=" text-decoration:none;">ABSOLUTELY&lt;/span>&lt;span style=" font-weight:400; text-decoration:none;"> &lt;/span>&lt;span style=" text-decoration:none;">NO&lt;/span>&lt;span style=" font-weight:400; text-decoration:none;"> &lt;/span>&lt;span style=" text-decoration:none;">WARRANTY&lt;/span>&lt;span style=" font-weight:400; text-decoration:none;">; for details see the included text file &lt;/span>&lt;span style=" text-decoration:none;">LICENSE&lt;/span>&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">This is free software, and you are welcome to redistribute it&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">Under certain conditions; see &lt;span style=" font-weight:600;">LICENSE&lt;/span> for more information.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">This program is distributed in the hope that it will be useful,&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">but &lt;span style=" font-weight:600;">WITHOUT&lt;/span> &lt;span style=" font-weight:600;">ANY&lt;/span> &lt;span style=" font-weight:600;">WARRANTY&lt;/span>; without even the implied warranty of&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">&lt;span style=" font-weight:600;">MERCHANTABILITY&lt;/span> or &lt;span style=" font-weight:600;">FITNESS&lt;/span> &lt;span style=" font-weight:600;">FOR&lt;/span> &lt;span style=" font-weight:600;">A PARTICULAR PURPOSE.&lt;/span>  See the&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">GNU General Public License for more details.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">You should have received a copy of the GNU General Public License along&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">with this program; if not, write to the Free Software Foundation, Inc.,&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600; text-decoration: underline; color:#2f4f4f;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600; text-decoration: underline; color:#2f4f4f;">Information&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">This program was written to free FFXI Windower users of the annoying need to write out entire FFXI Windower scripts for switching equipment. This program does nothing more than apply text data to a template to decrease time and thought necessary to create such scripts.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">I do not believe that this program is in any way a violation of the terms of service agreement for PlayOnline's Final Fantasy XI, as it just merely generates text files. However, by using this program at your own risk you agree that the creator(s) of this utility &lt;span style=" font-weight:600;">cannot&lt;/span> be held accountable for any misfortunes you may encounter using this program.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">For source code and binary downloads, please visit &lt;a href="http://equipmant.sourceforge.net/">&lt;span style=" text-decoration: underline; color:#0000ff;">The Equipmant Home Page&lt;/span>&lt;/a>&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; color:#2f4f4f;">&lt;/p>&lt;/body>&lt;/html></string>
+   </property>
+   <property name="openExternalLinks" >
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18" >
+   <property name="geometry" >
+    <rect>
+     <x>479</x>
+     <y>10</y>
+     <width>16</width>
+     <height>67</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string/>
+   </property>
+   <property name="pixmap" >
+    <pixmap/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>471</width>
+     <height>69</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>0</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="0" column="0" >
+     <widget class="QLabel" name="label_17" >
+      <property name="text" >
+       <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal; text-decoration:none;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:23pt; font-weight:600;">Equipmant&lt;/span>&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:23pt; font-weight:600;">&lt;span style=" font-size:10pt;">Version $EQM_VERSION&lt;/span>&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt; font-weight:600;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;">&lt;span style=" font-size:10pt; color:#000000;">Copyright © 2007 Gregory McQuillan&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" >
+     <widget class="QLabel" name="label_19" >
+      <property name="text" >
+       <string/>
+      </property>
+      <property name="pixmap" >
+       <pixmap resource="equip.qrc" >:/img/res/ equip_icon_64.png</pixmap>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" >
+     <spacer>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" >
+       <size>
+        <width>191</width>
+        <height>67</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QDialogButtonBox" name="buttonBox" >
+   <property name="geometry" >
+    <rect>
+     <x>9</x>
+     <y>280</y>
+     <width>471</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons" >
+    <set>QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>dlgAbout</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>dlgAbout</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

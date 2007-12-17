@@ -1,0 +1,130 @@
+Version 2.0
+----------------
+Added 2007.12.16
+	- Changed the interface.
+	--	Removed tabs
+	--	Added the "extra data bin"
+	--	Added some GUI components for easy extra data
+		manipulation.
+	--	Made separate dialog for about screen
+	--	Added toobar
+	--	Added view menu (to switch views)
+	--	Added help menu (for about and project page options)
+	- Changed updateTitle() function, no string needs to be specified
+	  now. Call only the updateTitle(void) function.
+	- updated version # in comments and added contact e-mail.
+	- updated dates in change log (years were all set 2006, but this
+	  was a typo for 2007)
+	- fixed possible bug that would add an infinite number of
+	  "//Extra data found in file:" lines from extra data detection.
+	- added new test suite case with an extra command, which was generated
+	  by Equipmant,
+
+
+Version 1.2.3
+----------------
+Added 2007.08.04
+	- Added the extra data feature. This feature will (hopefully) prevent
+	  Equipmant from throwing out any extra data you might have in your
+	  file. (i.e., Extra added Job Abilities and Spells, etc.) also any
+	  comments that you add to the file will get tossed down to the bottom
+	  of your output file (in the extra data segment).
+	- Switched the output comments to use preprocessor macros instead of
+	  typing them out directly (to make any possible changes in the future
+	  quicker). These macros (EQM_OPC1 and EQM_OPC2 are stored in the
+	  imp_equipmant.h file).
+	- Updated the output comment line 2 (EQM_OPC2) to display the new
+	  sourceforge URL also.
+	- Updated hyperlink in the About UI to point to the sourceforge page.
+	- Added 2 new test cases for the Extra Data feature, 5.equip and 6.equip
+	  descriptions should be inside the files in the form of comments
+	  describing their purpose. Load them with Equipmant and view output to
+	  see how they work, then compare this output to the original file
+	  contents.
+
+Version 1.2.2
+----------------
+Added 2007.06.30
+	- Fixed a bug in the recent file menus. When selecting the first recent
+	  item, another instance of that item was added to the menu.
+
+
+Version 1.2.1
+----------------
+Added 2007.06.30
+	- Fixed a bug in the recent files menu that caused all recent files to show
+	  even when there were no recent files.
+	- Fixed a bug in the loadData() routine that caused path names containing
+	  spaces to read in as recent files.
+
+
+Version 1.2
+----------------
+Added 2007.06.29
+	- Implemented the use of the EQM_VERSION macro in the about screen; the GUI
+	  no longer has to be updated with the version number.
+	- Added dash line separators in CHANGELOG under each version number (for
+	  better readability).
+	- Added Last File Directory memory. Equipmant save/open dialogs will now
+	  be directed to the path of the last file you opened or saved. (This
+	  change was not necessary for the Mac OS X file dialogs, however the
+	  Windows common dialog had its issues)newline at end of source files (to
+	  remove compiler warnings).
+	- Removed comment block in writeFile(QString) routine containing old,
+	  unused (temporary) code.
+	- Added status bar messages for the following actions:
+		- File/New
+		- File/Open
+		- File/Close
+	- Added recent documents list option (File->Open Recent)
+	- Added newline at end of source files (to remove compiler warnings)
+	- "View Output" text field is now updated on file load. (previously this
+	  text field went blank if a file was opened while in "View Output" tab.
+
+Version 1.1.3
+----------------
+	- Added hyperlink to the official URL in the about dialog.
+	- Updated version # in comment blocks (-_-;)
+	- Created program Icon
+	- Added program icon to about screen
+	- Implemented Desktop icon on OS X version.
+Added 2007.06.28:
+	** Decided to add dates to CHANGELOG info **
+	- Added current file name to title bar.
+	- Added default file extension .equip
+	- Updated version information on file output (-_-;)
+	- Main window title now displays the version number.
+
+Version 1.1.2
+----------------
+	- Reduced font sizes of certain text in the About tab (it was way too big
+	  under windows, so it has been set to 10pt font, for Windows and Mac).
+	- Added a minimum height to the form (this allowed the height to be set to
+	  319, which packed the widgets closer together vertically).
+	- Removed horizontal scrollbar from About tab's TextBrowser widget and
+	  fixed the line wrapping on it. The lines are now properly wrapped.
+	- Added more details about the license in the About tab TextBrowser.
+	- Removed the equipmant12.ui file (since it was not being used and only
+	  caused confusion when running the qmake -project command. Additionally,
+	  this UI wasn't being used, and will probably be modified more later on
+	  before it is implemented).
+	- Changed archive naming convention to add -src after to show that the
+	  archive contains source code. (this might help!)
+
+Version 1.1.1
+----------------
+	- Fixed file format of some documents (now the files are terminated with the
+	  standard DOS CR/LF terminations).
+	- Added some more detail to instructions.txt on what to do after your files
+	  are generated
+
+Version 1.1
+----------------
+	- Changed parse method (old method had possible room for bugs) and moved it
+	  to another function.
+	- Changed label L.ear and R.ear to L.Ear and R.Ear (case change)
+	- Fixed "Gemerated" typo in output comment
+	- Added Docs folder and short instructions
+	- Added GPL to the About dialog
+	- Added GPL header to all source files (WHOOPS!)
+

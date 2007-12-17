@@ -1,0 +1,963 @@
+<ui version="4.0" >
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>509</width>
+    <height>541</height>
+   </rect>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>509</width>
+    <height>541</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>Equipmant Equipment Macro Manager</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <layout class="QVBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QStackedWidget" name="swView" >
+      <property name="currentIndex" >
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="editMode" >
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QScrollArea" name="frame" >
+          <property name="minimumSize" >
+           <size>
+            <width>0</width>
+            <height>253</height>
+           </size>
+          </property>
+          <property name="frameShape" >
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow" >
+           <enum>QFrame::Plain</enum>
+          </property>
+          <layout class="QVBoxLayout" >
+           <property name="margin" >
+            <number>9</number>
+           </property>
+           <property name="spacing" >
+            <number>6</number>
+           </property>
+           <item>
+            <layout class="QGridLayout" >
+             <property name="margin" >
+              <number>0</number>
+             </property>
+             <property name="spacing" >
+              <number>6</number>
+             </property>
+             <item row="6" column="1" >
+              <widget class="QLabel" name="label_15" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Waist</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtWaist</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1" >
+              <widget class="QLineEdit" name="txtHands" />
+             </item>
+             <item row="6" column="2" >
+              <widget class="QLabel" name="label_14" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Legs</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtLegs</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" >
+              <widget class="QLineEdit" name="txtHead" />
+             </item>
+             <item row="5" column="0" >
+              <widget class="QLineEdit" name="txtBody" />
+             </item>
+             <item row="6" column="3" >
+              <widget class="QLabel" name="label_13" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Feet</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtFeet</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="2" >
+              <widget class="QLineEdit" name="txtLegs" />
+             </item>
+             <item row="4" column="3" >
+              <widget class="QLabel" name="label_11" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>R.Ring</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtRRing</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2" >
+              <widget class="QLineEdit" name="txtRanged" />
+             </item>
+             <item row="6" column="0" >
+              <widget class="QLabel" name="label_16" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Back</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtBack</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="3" >
+              <widget class="QLabel" name="label_7" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>R.Ear</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtREar</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1" >
+              <widget class="QLineEdit" name="txtWaist" />
+             </item>
+             <item row="3" column="3" >
+              <widget class="QLineEdit" name="txtREar" />
+             </item>
+             <item row="2" column="0" >
+              <widget class="QLabel" name="label_5" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Head</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtHead</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2" >
+              <widget class="QLineEdit" name="txtLEar" />
+             </item>
+             <item row="7" column="3" >
+              <widget class="QLineEdit" name="txtFeet" />
+             </item>
+             <item row="0" column="1" >
+              <widget class="QLabel" name="label_2" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Sub</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtSub</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2" >
+              <widget class="QLabel" name="label_9" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>L.Ring</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtLRing</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3" >
+              <widget class="QLineEdit" name="txtAmmo" />
+             </item>
+             <item row="0" column="3" >
+              <widget class="QLabel" name="label_4" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Ammo</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtAmmo</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1" >
+              <widget class="QLabel" name="label_8" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Neck</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtNeck</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" >
+              <widget class="QLabel" name="label" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>7</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Main</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtMain</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" >
+              <widget class="QLineEdit" name="txtMain" />
+             </item>
+             <item row="5" column="3" >
+              <widget class="QLineEdit" name="txtRRing" />
+             </item>
+             <item row="2" column="2" >
+              <widget class="QLabel" name="label_6" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>L.Ear</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtLEar</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0" >
+              <widget class="QLineEdit" name="txtBack" />
+             </item>
+             <item row="5" column="2" >
+              <widget class="QLineEdit" name="txtLRing" />
+             </item>
+             <item row="3" column="1" >
+              <widget class="QLineEdit" name="txtNeck" />
+             </item>
+             <item row="0" column="2" >
+              <widget class="QLabel" name="label_3" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Range</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtRanged</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1" >
+              <widget class="QLabel" name="label_10" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Hands</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtHands</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0" >
+              <widget class="QLabel" name="label_12" >
+               <property name="sizePolicy" >
+                <sizepolicy>
+                 <hsizetype>5</hsizetype>
+                 <vsizetype>0</vsizetype>
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text" >
+                <string>Body</string>
+               </property>
+               <property name="buddy" >
+                <cstring>txtBody</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1" >
+              <widget class="QLineEdit" name="txtSub" />
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pbWriteFile" >
+             <property name="text" >
+              <string>&amp;Write File</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line" >
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_17" >
+          <property name="text" >
+           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Lucida Grande'; font-size:13pt; font-weight:400; font-style:normal; text-decoration:none;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:15pt; font-weight:600; text-decoration: underline;">Extra Data Bin&lt;/span>&lt;span style=" font-size:15pt;"> - Add extra commands to your script here.&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+          </property>
+          <property name="wordWrap" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="txtExtraData" >
+          <property name="verticalScrollBarPolicy" >
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy" >
+           <enum>Qt::ScrollBarAsNeeded</enum>
+          </property>
+          <property name="lineWrapMode" >
+           <enum>QTextEdit::NoWrap</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item row="0" column="0" >
+           <widget class="QLabel" name="label_20" >
+            <property name="text" >
+             <string>Command Type:</string>
+            </property>
+            <property name="buddy" >
+             <cstring>cmbExtraType</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2" >
+           <widget class="QStackedWidget" name="swExtraData" >
+            <property name="currentIndex" >
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="page" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QComboBox" name="cmbExtraCommand" >
+                <item>
+                 <property name="text" >
+                  <string>Job Ability</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Spell or Song</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Self-Notice (echo)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Tell Party</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Tell Linkshell</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cmbExtraParam" >
+                <property name="editable" >
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>Provoke</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Sneak Attack</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Trick Attack</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cmbExtraTarget" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>70</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="editable" >
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>&lt;t></string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>&lt;bt></string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>&lt;st></string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>&lt;me></string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_2" >
+             <layout class="QHBoxLayout" >
+              <property name="margin" >
+               <number>0</number>
+              </property>
+              <property name="spacing" >
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QSpinBox" name="spnTimeout" >
+                <property name="frame" >
+                 <bool>true</bool>
+                </property>
+                <property name="alignment" >
+                 <set>Qt::AlignRight</set>
+                </property>
+                <property name="maximum" >
+                 <number>900</number>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="cmbTimetype" >
+                <item>
+                 <property name="text" >
+                  <string>Seconds</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Minutes</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Hours</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+          <item row="0" column="2" colspan="2" >
+           <widget class="QLabel" name="label_22" >
+            <property name="text" >
+             <string>Command Parameters:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QComboBox" name="cmbExtraType" >
+            <item>
+             <property name="text" >
+              <string>FFXI Command (input)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text" >
+              <string>Pause</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="3" >
+           <widget class="QToolButton" name="tbAddToBin" >
+            <property name="text" >
+             <string>&amp;Add</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
+           <widget class="QLabel" name="label_21" >
+            <property name="text" >
+             <string>Command
+(or pause time):</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="viewOutput" >
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>9</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <widget class="QTextEdit" name="txtTextMode" >
+          <property name="verticalScrollBarPolicy" >
+           <enum>Qt::ScrollBarAlwaysOn</enum>
+          </property>
+          <property name="readOnly" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>509</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File" >
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <widget class="QMenu" name="mnuFileOpenRecent" >
+     <property name="title" >
+      <string>Open Recent</string>
+     </property>
+     <addaction name="mnuRecent1" />
+     <addaction name="mnuRecent2" />
+     <addaction name="mnuRecent3" />
+     <addaction name="mnuRecent4" />
+     <addaction name="mnuRecent5" />
+     <addaction name="mnuRecent6" />
+     <addaction name="mnuRecent7" />
+     <addaction name="mnuRecent8" />
+     <addaction name="mnuRecent9" />
+     <addaction name="separator" />
+     <addaction name="mnuRecentClear" />
+    </widget>
+    <addaction name="mnuFileNew" />
+    <addaction name="mnuFileOpen" />
+    <addaction name="mnuFileOpenRecent" />
+    <addaction name="mnuFileClose" />
+    <addaction name="separator" />
+    <addaction name="mnuFileSave" />
+    <addaction name="mnuFileSaveAs" />
+    <addaction name="separator" />
+    <addaction name="mnuFileQuit" />
+   </widget>
+   <widget class="QMenu" name="menu_Help" >
+    <property name="title" >
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="mnuHelpPPage" />
+    <addaction name="mnuHelpWebsite" />
+    <addaction name="separator" />
+    <addaction name="mnuHelpAbout" />
+   </widget>
+   <widget class="QMenu" name="menu_View" >
+    <property name="title" >
+     <string>&amp;View</string>
+    </property>
+    <addaction name="mnuViewEdit" />
+    <addaction name="mnuViewOutput" />
+   </widget>
+   <addaction name="menu_File" />
+   <addaction name="menu_View" />
+   <addaction name="menu_Help" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <widget class="QToolBar" name="toolBar" >
+   <property name="minimumSize" >
+    <size>
+     <width>47</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="orientation" >
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="iconSize" >
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle" >
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+   <attribute name="toolBarArea" >
+    <number>4</number>
+   </attribute>
+   <addaction name="mnuFileNew" />
+   <addaction name="mnuFileOpen" />
+   <addaction name="mnuFileClose" />
+   <addaction name="mnuFileSave" />
+   <addaction name="mnuFileSaveAs" />
+   <addaction name="separator" />
+   <addaction name="mnuViewEdit" />
+   <addaction name="mnuViewOutput" />
+  </widget>
+  <action name="mnuFileNew" >
+   <property name="icon" >
+    <iconset resource="equip.qrc" >:/img/res/new.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;New</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="mnuFileOpen" >
+   <property name="icon" >
+    <iconset resource="equip.qrc" >:/img/res/open.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Open...</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="mnuFileSave" >
+   <property name="icon" >
+    <iconset resource="equip.qrc" >:/img/res/save.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Save</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="mnuFileSaveAs" >
+   <property name="icon" >
+    <iconset resource="equip.qrc" >:/img/res/saveas.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Save &amp;As...</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="mnuFileQuit" >
+   <property name="text" >
+    <string>&amp;Exit</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="mnuFileClose" >
+   <property name="icon" >
+    <iconset resource="equip.qrc" >:/img/res/close.png</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;Close</string>
+   </property>
+   <property name="shortcut" >
+    <string/>
+   </property>
+  </action>
+  <action name="mnuRecent1" >
+   <property name="text" >
+    <string>&amp;1. $RECENT1</string>
+   </property>
+  </action>
+  <action name="mnuRecent2" >
+   <property name="text" >
+    <string>&amp;2. $RECENT2</string>
+   </property>
+  </action>
+  <action name="mnuRecent3" >
+   <property name="text" >
+    <string>&amp;3. $RECENT3</string>
+   </property>
+  </action>
+  <action name="mnuRecent4" >
+   <property name="text" >
+    <string>&amp;4. $RECENT4</string>
+   </property>
+  </action>
+  <action name="mnuRecent5" >
+   <property name="text" >
+    <string>&amp;5. $RECENT5</string>
+   </property>
+  </action>
+  <action name="mnuRecent6" >
+   <property name="text" >
+    <string>&amp;6. $RECENT6</string>
+   </property>
+  </action>
+  <action name="mnuRecent7" >
+   <property name="text" >
+    <string>&amp;7. $RECENT7</string>
+   </property>
+  </action>
+  <action name="mnuRecent8" >
+   <property name="text" >
+    <string>&amp;8. $RECENT8</string>
+   </property>
+  </action>
+  <action name="mnuRecent9" >
+   <property name="text" >
+    <string>&amp;9. $RECENT9</string>
+   </property>
+  </action>
+  <action name="mnuRecentClear" >
+   <property name="text" >
+    <string>C&amp;lear Menu</string>
+   </property>
+  </action>
+  <action name="mnuHelpAbout" >
+   <property name="text" >
+    <string>&amp;About ...</string>
+   </property>
+  </action>
+  <action name="mnuHelpWebsite" >
+   <property name="text" >
+    <string>Equipmant &amp;Website ...</string>
+   </property>
+  </action>
+  <action name="mnuHelpPPage" >
+   <property name="text" >
+    <string>Equipmant &amp;Project Page ...</string>
+   </property>
+  </action>
+  <action name="mnuViewEdit" >
+   <property name="text" >
+    <string>&amp;Edit Mode</string>
+   </property>
+  </action>
+  <action name="mnuViewOutput" >
+   <property name="text" >
+    <string>&amp;View Output</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QScrollArea</class>
+   <extends>QFrame</extends>
+   <header>qscrollarea.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>txtMain</tabstop>
+  <tabstop>txtSub</tabstop>
+  <tabstop>txtRanged</tabstop>
+  <tabstop>txtAmmo</tabstop>
+  <tabstop>txtHead</tabstop>
+  <tabstop>txtNeck</tabstop>
+  <tabstop>txtLEar</tabstop>
+  <tabstop>txtREar</tabstop>
+  <tabstop>txtBody</tabstop>
+  <tabstop>txtHands</tabstop>
+  <tabstop>txtLRing</tabstop>
+  <tabstop>txtRRing</tabstop>
+  <tabstop>txtBack</tabstop>
+  <tabstop>txtWaist</tabstop>
+  <tabstop>txtLegs</tabstop>
+  <tabstop>txtFeet</tabstop>
+  <tabstop>pbWriteFile</tabstop>
+  <tabstop>txtExtraData</tabstop>
+  <tabstop>cmbExtraType</tabstop>
+  <tabstop>cmbExtraCommand</tabstop>
+  <tabstop>cmbExtraParam</tabstop>
+  <tabstop>cmbExtraTarget</tabstop>
+  <tabstop>spnTimeout</tabstop>
+  <tabstop>cmbTimetype</tabstop>
+  <tabstop>tbAddToBin</tabstop>
+  <tabstop>txtTextMode</tabstop>
+ </tabstops>
+ <resources>
+  <include location="equip.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>cmbExtraType</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>swExtraData</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>120</x>
+     <y>489</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>432</x>
+     <y>476</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
