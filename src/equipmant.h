@@ -19,12 +19,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef __EQUIPMANT_H
 #define __EQUIPMANT_H
 
-/********* Please configure the following lines ********/
-//#define WINDOWS  //uncomment this line if you're using a Windows OS.
-/********* do not "configure" below this line ********/
 #define EQM_VERSION "2.0"
-#ifdef WINDOWS
-#include <windows.h>
-#endif
 
 #endif

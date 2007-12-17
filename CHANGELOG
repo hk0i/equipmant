@@ -19,6 +19,7 @@ Added 2007.12.16
 	  "//Extra data found in file:" lines from extra data detection.
 	- added new test suite case with an extra command, which was generated
 	  by Equipmant,
+	- added program icon for windows
 
 
 Version 1.2.3

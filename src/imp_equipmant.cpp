@@ -106,29 +106,11 @@ void Imp_equipmant::fileClearRecent(void) { clearRecent(true); updateRecent(); }
 
 void Imp_equipmant::helpPPage(void)
 {
-/* until i find a universal way of doing this, i know this will
-   probably work under windows, I still need to figure out a way
-   for this to work under unix systems, and possible a cross-platform
-   way to do this for all systems in one snippet. */
-#ifdef WINDOWS
-	ShellExecute(NULL, "open", "http://sourceforge.net/projects/equipmant",
-					NULL, NULL, SW_SHOWNORMAL);
-#else
-	/* run web browser and open project page 
-	QProcess *wb = new QProcess(this);
-	wb->start("http://sourceforge.net/projects/equipmant");*/
-#endif
+	QDesktopServices::openUrl(QUrl("http://sourceforge.net/projects/equipmant"));
 }
 void Imp_equipmant::helpWebsite(void)
 {
-#ifdef WINDOWS
-	ShellExecute(NULL, "open", "http://equipmant.sourceforge.net/",
-					NULL, NULL, SW_SHOWNORMAL);
-#else
-	/* I need to figure this out...
-	QProcess *wb = new QProcess(this);
-	wb->start("http://equipmant.sourceforge.net");*/
-#endif
+	QDesktopServices::openUrl(QUrl("http://equipmant.sourceforge.net"));
 }
 void Imp_equipmant::helpAbout(void)
 {

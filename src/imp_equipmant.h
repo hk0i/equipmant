@@ -17,6 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef __IMP_EQUIPMANT
 #define __IMP_EQUIPMANT
 
+#include <QDesktopServices>
 #include <QFile>
 #include <QTextStream>
 #include <QFileDialog>
