@@ -408,8 +408,14 @@ void Imp_equipmant::openRecent(int recNum)
 {
 	if (myRecentDocs[recNum-1].isEmpty())
 		return;
-	
-	readFile(myRecentDocs[recNum-1]);
+
+	QString fileName = myRecentDocs[recNum-1];
+
+	int newTabNum = tabFiles->addTab(new equipTab(),nameFromPath(fileName));
+	tabFiles->setCurrentIndex(newTabNum);
+	readFile(fileName);
+	CTAB
+	cTab->txtTextMode->setText(cTab->generateText());
 }
 
 
