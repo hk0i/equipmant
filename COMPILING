@@ -52,7 +52,7 @@ II. Windows
 
 qmake -project -o equip.pro
 qmake
-nmake
+make
 
 
 ---------------------------------------------------------------------
