@@ -1,6 +1,14 @@
 Version 3.1.0
 ----------------
 There is no 3.0.
+
+Added 2008.12.01
+	- fixed recent file tab bug - recent file menu was not creating new tabs
+	- fixed open recent menu bug that allowed multiple tabs of the same file to
+	  be open.
+	- tab name now changes (as it should) when fileSaveAs() is called.
+	- last file path is now set on open as well.
+
 Added 2008.11.30
 	- Changed version # convention in the format Major.Minor.Subminor
 	-- If the minor version is an odd number this means it is an unstable

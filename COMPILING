@@ -4,6 +4,9 @@ Assuming you have QT4 installed (which you should, because this is a QT4
 app). If you don't have it, download the appropriate package for your
 Operating System at http://trolltech.com
 
+Check file QT-VERSION to check the current version of QT I used to compile
+(since they are not always backwards compatible, this may explain some problems
+you may be experiencing).
 
 ---------------------------------------------------------------------
 Contents
