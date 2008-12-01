@@ -108,6 +108,7 @@ void Imp_equipmant::fileSaveAs(void)
 		statusbar->showMessage("No filename selected. File has NOT been saved.");
 	
 	cTab->setCurrentFile(fileName);
+	tabFiles->setTabText(tabFiles->currentIndex(),nameFromPath(fileName));
 }
 
 void Imp_equipmant::fileQuit(void)
