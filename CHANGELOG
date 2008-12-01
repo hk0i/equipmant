@@ -1,3 +1,22 @@
+Version 3.1.0
+----------------
+There is no 3.0.
+Added 2008.11.30
+	- Changed version # convention in the format Major.Minor.Subminor
+	-- If the minor version is an odd number this means it is an unstable
+		release. The release may need some testing and may possibly
+		have some bugs (or missing code in the event I rushed a release... hehe)
+	-- Updated Copyright date in the about dialog
+	-- changed the top margin of about dialog to 0
+
+Unknown Date Added
+	-- Added TABS! Equipment macro files can now be opened in multiple tabs, to
+		make editing easier.
+		Codewise this switched the GUI interface to use a custom widget
+	-- Removed the "Write File" button (due to some technicalities in coding as
+		well as the obvious redundancy).
+	-- Changed format in Recent menu to show the parent directory for the
+		files as well. i.e. "rdm/tp.txt" instead of "tp.txt"
 Version 2.0
 ----------------
 Added 2007.12.16
