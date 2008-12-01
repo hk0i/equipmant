@@ -1,0 +1,70 @@
+COMPILING - The short version.
+
+Assuming you have QT4 installed (which you should, because this is a QT4
+app). If you don't have it, download the appropriate package for your
+Operating System at http://trolltech.com
+
+
+---------------------------------------------------------------------
+Contents
+---------------------------------------------------------------------
+I. MacX / Linux
+II. Windows
+III. HELP!!! MY ICONS ARE MISSING!!!
+
+---------------------------------------------------------------------
+I. MacX / Linux
+---------------------------------------------------------------------
+1. Open your favorite terminal.
+2. cd to the src/ directory.
+3. Execute the following line to generate a QT project file.
+qmake -project -o equip.pro
+4. MacX users have a choice here, Linux users go ahead and execute
+    the following command:
+
+qmake
+
+MacX users, if you wish to compile using GNU make, you must specify,
+by doing the following:
+
+qmake -spec macx-g++
+
+MacX users, if you wish to compile using Apple Xcode, the default 
+`qmake'  command (same command for linux users listed above) will use
+the Xcode specification. If it does not try using:
+
+qmake -spec macx-xcode
+
+For more details on qmake, consult the QT4 Manual.
+
+5. Next, compile the application using `make' (MacX-G++ spec, and Linux
+users). MacX XCode users can open the .xcodeproj file in XCode and 
+compile using the "Build" button with the toolbox icon.
+
+
+---------------------------------------------------------------------
+II. Windows
+---------------------------------------------------------------------
+
+1. Open the QT Command Prompt (It will be in your start menu)
+2. cd to the src/ directory of this package.
+3. Execute the following commands:
+
+qmake -project -o equip.pro
+qmake
+nmake
+
+
+---------------------------------------------------------------------
+III. HELP!!! MY ICONS ARE MISSING!!!
+---------------------------------------------------------------------
+If the Equipmant program icon is not showing up you must manually edit
+the equip.pro file (after it is created in the `qmake -project` step)
+and add the following lines to the end of the file:
+
+ICON=equip.icns
+RC_FILE=equip.rc
+
+The first line adds the icns icons file for macx, the second is the
+resource file for windows. At present I'm not sure how to create an
+icon for Linux, when I figure it out it will be added.
