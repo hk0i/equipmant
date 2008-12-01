@@ -410,6 +410,18 @@ void Imp_equipmant::openRecent(int recNum)
 		return;
 
 	QString fileName = myRecentDocs[recNum-1];
+	
+	//check if file is already open :)
+	equipTab *tab=0;
+ 	for (int i=0; i < tabFiles->count(); i++)
+	{
+		tab = (equipTab*)tabFiles->widget(i);
+		if (tab->getCurrentFile() == fileName)
+		{
+			tabFiles->setCurrentIndex(i);
+			return;
+		}
+	}
 
 	int newTabNum = tabFiles->addTab(new equipTab(),nameFromPath(fileName));
 	tabFiles->setCurrentIndex(newTabNum);
