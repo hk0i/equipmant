@@ -217,6 +217,9 @@ void Imp_equipmant::readFile(QString fileName)
 
 	cTab->readFile(fileName);
 	
+	//update last file path
+	myLastFileDir = fileName.left(fileName.lastIndexOf('/'));
+	saveData();	//save data now in case of a crash ;D
 	statusbar->showMessage("Loaded File: " + fileName);
 	addRecent(fileName);
 }
