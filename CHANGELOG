@@ -1,3 +1,15 @@
+Version 3.1.1
+----------------
+
+Added 2008.12.05
+	- Fixed Extra Data bug -- Extra data was not being saved unless the "View
+	  Output" button was clicked prior.
+	- Added EOL after the extra data info (Oops!)
+
+NOTES:
+	Need to look into QIODevice::Text for opening text files (perhaps it will do
+	EOL conversion automatically, for loading AND saving).
+
 Version 3.1.0
 ----------------
 There is no 3.0.

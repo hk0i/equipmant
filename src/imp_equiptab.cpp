@@ -128,9 +128,10 @@ QString equipTab::generateText(void)
 	strOut << "input /equip feet \"" << txtFeet->text() << "\"\r\n";
 	
 	//EXTRA DATA STUFF - added in 1.2.3
+	myExtraData = txtExtraData->toPlainText();
 	if (!myExtraData.isEmpty())
 	{
-		strOut << "\r\n" << EQM_EXTRADATA << myExtraData;
+		strOut << "\r\n" << EQM_EXTRADATA << myExtraData << "\r\n";
 	}
 	
 	return result;

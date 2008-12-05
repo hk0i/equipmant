@@ -206,6 +206,7 @@ void Imp_equipmant::writeFile(QString fName)
 	saveData();	//save data now in case of a crash ;D
 	statusbar->showMessage(fName + " saved.");
 
+
 }
 
 void Imp_equipmant::readFile(QString fileName)
