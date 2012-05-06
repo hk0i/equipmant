@@ -23,19 +23,19 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 class Imp_about: public QDialog, Ui::dlgAbout
 {
-	Q_OBJECT
-	
-	public:
-		Imp_about() : QDialog()
-		{
-			setupUi(this);
-			//add the version # to the about "screen"
-			label_17->setText(label_17->text().replace("$EQM_VERSION",EQM_VERSION));
-		}
+    Q_OBJECT
+    
+    public:
+        Imp_about() : QDialog()
+        {
+            setupUi(this);
+            //add the version # to the about "screen"
+            label_17->setText(label_17->text().replace("$EQM_VERSION",EQM_VERSION));
+        }
 
-	private slots:
+    private slots:
 
-	private:
+    private:
 
 };
 
