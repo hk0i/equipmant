@@ -1,0 +1,5 @@
+.DS_Store
+moc*.cpp
+qrc*.cpp
+ui*.cpp
+*.o
