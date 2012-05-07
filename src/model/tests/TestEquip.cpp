@@ -6,6 +6,7 @@ class TestEquip : public QObject
     Q_OBJECT
 
 public:
+
     TestEquip() {}
 
 private slots:
@@ -116,9 +117,10 @@ private slots:
     }
 
 private:
+
     Equip *m_equip;
 
 };
 
-QTEST_MAIN(TestEquip)
-#include "TestEquip.moc"
+// QTEST_APPLESS_MAIN(TestEquip)
+// #include "TestEquip.moc"

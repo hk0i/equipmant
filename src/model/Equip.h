@@ -1,7 +1,7 @@
-#include <QtCore>
-
 #ifndef EQUIP_H
 #define EQUIP_H
+
+#include <QtCore>
 
 class Equip
 {
