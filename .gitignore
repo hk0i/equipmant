@@ -3,3 +3,7 @@ moc*.cpp
 qrc*.cpp
 ui*.cpp
 *.o
+*.swp
+*.swo
+*.moc
+Makefile
