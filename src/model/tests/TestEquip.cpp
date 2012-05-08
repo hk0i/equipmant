@@ -55,5 +55,5 @@ private:
 
 };
 
-QTEST_APPLESS_MAIN(TestEquip)
-#include "TestEquip.moc"
+// QTEST_APPLESS_MAIN(TestEquip)
+// #include "TestEquip.moc"

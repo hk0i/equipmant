@@ -10,6 +10,7 @@ INCLUDEPATH += .
 QT -= gui
 QT += testlib
 CONFIG -= app_bundle
+CONFIG += debug
 
 # Input
 HEADERS += ../Equip.h \

@@ -7,8 +7,8 @@ EquipReader::EquipReader(QString filename)
 
 EquipReader::~EquipReader(void)
 {
-    if (m_equip)
-        delete m_equip;
+    // if (m_equip)
+        // delete m_equip;
 }
 
 Equip *EquipReader::getEquip(void)

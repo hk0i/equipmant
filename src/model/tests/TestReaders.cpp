@@ -33,11 +33,16 @@ private slots:
         QCOMPARE(m_equip->get(Equip::Head), QString("5"));
     }
 
+    void testReaderGetLRing()
+    {
+        QCOMPARE(m_equip->get(Equip::LRing), QString("11"));
+    }
+
 private:
 
     EquipReader *m_reader;
     Equip *m_equip;
 };
 
-// QTEST_APPLESS_MAIN(TestReaders)
-// #include "TestReaders.moc"
+QTEST_APPLESS_MAIN(TestReaders)
+#include "TestReaders.moc"
