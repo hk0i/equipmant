@@ -38,6 +38,12 @@ private slots:
         QCOMPARE(m_equip->get(Equip::LRing), QString("11"));
     }
 
+    void testExtraData()
+    {
+        qDebug() << m_equip->getExtraData();
+        QCOMPARE(m_equip->getExtraData(), QString("//this suite illustrates files open properly\n"));
+    }
+
 private:
 
     EquipReader *m_reader;

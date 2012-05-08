@@ -6,45 +6,62 @@ EquipReaderTxt::EquipReaderTxt(QString filename)
     read(filename);
 }
 
+/**
+ * Reads text file
+ */
 void EquipReaderTxt::read(QString filename)
 {
     QFile file(filename);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         return;
+    }
 
     QTextStream in(&file);
         // qDebug() << "hello";
     QString line;
+    QString extraData;
     while (!in.atEnd()) {
         line = in.readLine();
-        parsePiece(line);
+        if (!parsePiece(line) && !line.isEmpty()) {
+            qDebug() << line;
+            extraData += line + '\n';
+        }
     }
-}
 
-QString EquipReaderTxt::parsePiece(const QString &lineBuffer)
-{
-    //parse using regex :D
-    QRegExp regex("input /equip (.+) \"(.+)\"",
-            Qt::CaseInsensitive
-    );
-    //if our line is an equipment line
-    int i = regex.indexIn(lineBuffer);
-    // qDebug() << "i: " << i;
-    if (i >= 0) {
-        //set the gear
-        // qDebug() << "Capped: " << regex.captureCount();
-        qDebug() << regex.cap(1) << regex.cap(2);
-        m_equip->set(regex.cap(1), regex.cap(2));
-    }
-    else {
-        //add it to extra data
+    if (!extraData.isEmpty()) {
+        m_equip->setExtraData(extraData);
     }
 }
 
 /**
- * Equips itemName to the location slot of the Equip object
+ * Attempts to parse an input /equip line.
+ * Returns false on failure, true on success
  */
-void EquipReaderTxt::equip(QString location, QString itemName)
+bool EquipReaderTxt::parsePiece(const QString &lineBuffer)
 {
+    //parse using regex :D
+    QRegExp regex(
+        "input /equip (.+) \"(.+)\"",
+        Qt::CaseInsensitive
+    );
 
+    QString extraData; //store unparsed data in here
+    int i = regex.indexIn(lineBuffer);
+    //if our line is an equipment line
+    if (i >= 0) {
+        qDebug() << regex.cap(1) << regex.cap(2);
+        m_equip->set(regex.cap(1), regex.cap(2));
+        return true;
+    }
+
+    //check for version line and eat it up.
+    QRegExp versionLine(
+        "^//Equipmant Script File",
+        Qt::CaseInsensitive
+    );
+    if (versionLine.indexIn(lineBuffer) >= 0)
+        return true;
+
+    //parse failure, return false
+    return false;
 }

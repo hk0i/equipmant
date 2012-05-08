@@ -49,14 +49,17 @@ class Equip : public QObject
         //setters
         bool set(const QString &slot, QString item);
         void set(Slot slot, const QString &item);
+        void setExtraData(const QString &data);
 
         //getters
         QString get(Slot) const;
         QString get(const QString &slot);
+        QString getExtraData(void) const;
 
     private:
 
         QMap <Slot, QString> m_slots;
+        QString m_extra_data;
 
 };
 

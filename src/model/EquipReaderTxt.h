@@ -12,11 +12,7 @@ class EquipReaderTxt : public EquipReader
 
     private:
 
-        QString parsePiece(const QString &lineBuffer);
-        void equip(QString location, QString itemName);
-
-
-        /* data */
+        bool parsePiece(const QString &lineBuffer);
 };
 
 

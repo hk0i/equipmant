@@ -40,3 +40,13 @@ QString Equip::get(const QString &slot)
         return "EQ_FALSE";
     return m_slots[(Slot) i];
 }
+
+void Equip::setExtraData(const QString &data)
+{
+    m_extra_data = data;
+}
+
+QString Equip::getExtraData(void) const
+{
+    return m_extra_data;
+}
