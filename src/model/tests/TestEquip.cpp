@@ -22,99 +22,32 @@ private slots:
             delete m_equip;
     }
 
-    //getter/setter row 1
-    void testSetGetMain()
+    //getter/setter using enum
+    void testSetGetEnum()
     {
-        m_equip->setMain("Dagger");
-        QCOMPARE(m_equip->getMain(), QString("Dagger"));
+        m_equip->set(Equip::Main, "Dagger");
+        QCOMPARE(m_equip->get(Equip::Main), QString("Dagger"));
     }
 
-    void testSetGetSub()
+    void testSetStringGetEnum()
     {
-        m_equip->setSub("Shield");
-        QCOMPARE(m_equip->getSub(), QString("Shield"));
+        m_equip->set("sub", "Shield");
+        QCOMPARE(m_equip->get(Equip::Sub), QString("Shield"));
     }
 
-    void testSetGetRange()
+    void testSetStringGetString()
     {
-        m_equip->setRange("Bow");
-        QCOMPARE(m_equip->getRange(), QString("Bow"));
+        m_equip->set("hands", "Gloves");
+        QCOMPARE(m_equip->get("hands"), QString("Gloves"));
     }
 
-    void testSetGetAmmo()
+    void testSetBadString()
     {
-        m_equip->setAmmo("Arrow");
-        QCOMPARE(m_equip->getAmmo(), QString("Arrow"));
-    }
-
-
-    //getter/setter row 2
-    void testSetGetHead()
-    {
-        m_equip->setHead("Helmet");
-        QCOMPARE(m_equip->getHead(), QString("Helmet"));
-    }
-    void testSetGetNeck()
-    {
-        m_equip->setNeck("Necklace");
-        QCOMPARE(m_equip->getNeck(), QString("Necklace"));
-    }
-    void testSetGetLEar()
-    {
-        m_equip->setLEar("Earring");
-        QCOMPARE(m_equip->getLEar(), QString("Earring"));
-    }
-    void testSetGetREar()
-    {
-        m_equip->setREar("Earring");
-        QCOMPARE(m_equip->getREar(), QString("Earring"));
+        m_equip->set("ringfinger", "Diamond Ring");
+        QCOMPARE(m_equip->get("ringfinger"), QString("EQ_FALSE"));
     }
 
 
-    //getter/setter row 3
-    void testSetGetBody()
-    {
-        m_equip->setBody("Body");
-        QCOMPARE(m_equip->getBody(), QString("Body"));
-    }
-    void testSetGetHands()
-    {
-        m_equip->setHands("Hands");
-        QCOMPARE(m_equip->getHands(), QString("Hands"));
-    }
-    void testSetGetLRing()
-    {
-        m_equip->setLRing("LRing");
-        QCOMPARE(m_equip->getLRing(), QString("LRing"));
-    }
-    void testSetGetRRing()
-    {
-        m_equip->setRRing("RRing");
-        QCOMPARE(m_equip->getRRing(), QString("RRing"));
-    }
-
-
-    //getter/setter row 4
-    void testSetGetBack()
-    {
-        m_equip->setBack("Back");
-        QCOMPARE(m_equip->getBack(), QString("Back"));
-    }
-    void testSetGetWaist()
-    {
-        m_equip->setWaist("Waist");
-        QCOMPARE(m_equip->getWaist(), QString("Waist"));
-    }
-    void testSetGetLegs()
-    {
-        m_equip->setLegs("Legs");
-        QCOMPARE(m_equip->getLegs(), QString("Legs"));
-    }
-    void testSetGetFeet()
-    {
-        m_equip->setFeet("Feet");
-        QCOMPARE(m_equip->getFeet(), QString("Feet"));
-    }
 
 private:
 
@@ -122,5 +55,5 @@ private:
 
 };
 
-// QTEST_APPLESS_MAIN(TestEquip)
-// #include "TestEquip.moc"
+QTEST_APPLESS_MAIN(TestEquip)
+#include "TestEquip.moc"

@@ -30,7 +30,7 @@ private slots:
 
     void testReaderGetHead()
     {
-        QCOMPARE(m_equip->getHead(), QString("5"));
+        QCOMPARE(m_equip->get(Equip::Head), QString("5"));
     }
 
 private:
@@ -39,5 +39,5 @@ private:
     Equip *m_equip;
 };
 
-QTEST_APPLESS_MAIN(TestReaders)
-#include "TestReaders.moc"
+// QTEST_APPLESS_MAIN(TestReaders)
+// #include "TestReaders.moc"
