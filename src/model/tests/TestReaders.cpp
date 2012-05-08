@@ -1,6 +1,6 @@
 #include <QtTest/QtTest>
 #include "../Equip.h"
-#include "../EquipReaderFactory.h"
+#include "../EquipIoFactory.h"
 
 #define TESTPATH "../../../test_suite"
 
@@ -16,7 +16,7 @@ private slots:
 
     void initTestCase()
     {
-        m_reader = EquipReaderFactory::createReader(
+        m_reader = EquipIoFactory::createReader(
             QString(TESTPATH "/1.equip")
         );
         m_equip = m_reader->getEquip();
