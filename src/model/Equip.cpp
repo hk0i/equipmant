@@ -13,7 +13,7 @@ Equip::~Equip(void)
 bool Equip::set(const QString &slot, QString item)
 {
     QString cleanSlot = slot;
-    cleanSlot.remove('.');
+    cleanSlot.remove(QRegExp("\\W"));
 
     int i = QENUM_VALUECI(Equip,
         Slot,
@@ -34,7 +34,7 @@ QString Equip::get(Slot slot) const { return m_slots[slot]; }
 QString Equip::get(const QString &slot)
 {
     QString cleanSlot = slot;
-    cleanSlot.remove('.');
+    cleanSlot.remove(QRegExp("\\W"));
     int i = QENUM_VALUECI(Equip, Slot, cleanSlot);
     if (i == -1)
         return "EQ_FALSE";
