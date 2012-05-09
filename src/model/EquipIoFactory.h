@@ -18,7 +18,7 @@ class EquipIoFactory
 
         static EquipReader *createReader(QString filename);
         static EquipWriter *createWriter(
-            const QString &filename,
+            const QString &format,
             const Equip &e
         );
 

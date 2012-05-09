@@ -89,9 +89,7 @@ QList< QPair<QString, QString> > Equip::getEquipment(void) const
 {
     QList< QPair<QString, QString> > gear;
     foreach (Slot slot, m_slots.keys()) {
-        qDebug() << slotName(slot) << m_slots[slot];
         gear.append(qMakePair(slotName(slot), m_slots[slot]));
-        // gear[slotName(slot)] = m_slots[slot];
     }
 
     return gear;

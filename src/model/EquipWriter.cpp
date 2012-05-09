@@ -1,6 +1,6 @@
 #include "EquipWriter.h"
 
-EquipWriter::EquipWriter(const QString &filename, const Equip &e)
+EquipWriter::EquipWriter(const Equip &e)
 {
     m_equip = &e;
 }

@@ -10,12 +10,10 @@ EquipReader *EquipIoFactory::createReader(QString filename)
     return NULL;
 }
 
-EquipWriter *EquipIoFactory::createWriter(const QString &filename, const Equip &e)
+EquipWriter *EquipIoFactory::createWriter(const QString &format, const Equip &e)
 {
-    QFileInfo fileInfo(filename);
-    if (fileInfo.suffix() == "txt" || fileInfo.suffix() == "equip")
-        // return NULL;
-        return new EquipWriterTxt(filename, e);
+    if (format == "txt" || format == "equip")
+        return new EquipWriterTxt(e);
 
     //return NULL if no writer can be found
     return NULL;

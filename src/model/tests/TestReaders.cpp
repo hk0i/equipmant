@@ -20,7 +20,7 @@ private slots:
         m_equip = m_reader->getEquip();
 
         m_writer = EquipIoFactory::createWriter(
-            QString(TESTPATH "/output-test.equip"),
+            "equip",
             *m_equip
         );
 
@@ -50,10 +50,7 @@ private slots:
 
     void testWriterEquipFile()
     {
-        m_writer->write(
-            QString(TESTPATH "/output-test.equip"),
-            *m_equip
-        );
+        m_writer->write(QString(TESTPATH "/output-test.equip"));
     }
 
 private:
