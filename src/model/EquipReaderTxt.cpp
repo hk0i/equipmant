@@ -17,13 +17,11 @@ void EquipReaderTxt::read(QString filename)
     }
 
     QTextStream in(&file);
-        // qDebug() << "hello";
     QString line;
     QString extraData;
     while (!in.atEnd()) {
         line = in.readLine();
         if (!parsePiece(line) && !line.isEmpty()) {
-            qDebug() << line;
             extraData += line + '\n';
         }
     }
@@ -49,7 +47,6 @@ bool EquipReaderTxt::parsePiece(const QString &lineBuffer)
     int i = regex.indexIn(lineBuffer);
     //if our line is an equipment line
     if (i >= 0) {
-        qDebug() << regex.cap(1) << regex.cap(2);
         m_equip->set(regex.cap(1), regex.cap(2));
         return true;
     }

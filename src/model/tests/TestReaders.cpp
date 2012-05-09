@@ -44,14 +44,20 @@ private slots:
 
     void testExtraData()
     {
-        qDebug() << m_equip->getExtraData();
         QCOMPARE(m_equip->getExtraData(), QString("//this suite illustrates files open properly\n"));
     }
 
-    void testWriterEquipFile()
+    void testWriterWriteEquipFile()
     {
         m_writer->write(QString(TESTPATH "/output-test.equip"));
     }
+
+    void testWriterReadWrittenFile()
+    {
+        EquipReader *tmpReader = EquipIoFactory::createReader(TESTPATH "/output-test.equip");
+        QCOMPARE(tmpReader->getEquip()->get("Main"), QString("1"));
+    }
+
 
 private:
 
