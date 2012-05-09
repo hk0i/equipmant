@@ -10,7 +10,7 @@ class Equip : public QObject
 
     public:
         enum Slot {
-            Main,
+            Main = 0,
             Sub,
             Range,
             Ammo,
@@ -55,8 +55,13 @@ class Equip : public QObject
         QString get(Slot) const;
         QString get(const QString &slot);
         QString getExtraData(void) const;
+        QMap<QString, QString> getEquipment(void) const;
+
+        bool isEmpty(void) const;
+
 
     private:
+        QString slotName(Slot) const;
 
         QMap <Slot, QString> m_slots;
         QString m_extra_data;

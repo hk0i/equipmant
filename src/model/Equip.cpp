@@ -50,3 +50,48 @@ QString Equip::getExtraData(void) const
 {
     return m_extra_data;
 }
+
+/**
+ * Returns true when no equipment or extra data is stored in object
+ */
+bool Equip::isEmpty(void) const
+{
+    if (m_slots.isEmpty() && m_extra_data.isEmpty()) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+/**
+ * Converts the slot's enum value into a string, inserting proper punctuation
+ * when necessary
+ *
+ * @example:
+ *  Main = "Main"
+ *  LEar = "L.Ear"
+ *  REar = "R.Ear"
+ */
+QString Equip::slotName(Slot slot) const
+{
+    QString returnSlot = Equip::staticMetaObject.enumerator(Main).key(slot);
+    returnSlot.replace(QRegExp("([A-Z])([A-Z])"), "\\1.\\2");
+
+    return returnSlot;
+}
+
+/**
+ * Returns a list of all of the non-empty equipment slots and what equipment
+ * they hold
+ */
+QMap<QString, QString> Equip::getEquipment(void) const
+{
+    QMap<QString, QString> gear;
+    foreach (Slot slot, m_slots.keys()) {
+        qDebug() << slotName(slot) << m_slots[slot];
+        gear[slotName(slot)] = m_slots[slot];
+    }
+
+    return gear;
+}

@@ -16,10 +16,14 @@ CONFIG += debug
 HEADERS += ../Equip.h \
            ../EquipIoFactory.h \
            ../EquipReader.h \
-           ../EquipReaderTxt.h
+           ../EquipReaderTxt.h \
+           ../EquipWriter.h \
+           ../EquipWriterTxt.h
 SOURCES += TestEquip.cpp \
            TestReaders.cpp \
            ../Equip.cpp \
            ../EquipIoFactory.cpp \
            ../EquipReader.cpp \
-           ../EquipReaderTxt.cpp
+           ../EquipReaderTxt.cpp \
+           ../EquipWriter.cpp \
+           ../EquipWriterTxt.cpp

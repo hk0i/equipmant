@@ -6,8 +6,7 @@ EquipReaderTxt::EquipReaderTxt(QString filename)
     read(filename);
 }
 
-/**
- * Reads text file
+/** * Reads text file
  */
 void EquipReaderTxt::read(QString filename)
 {

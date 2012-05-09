@@ -15,7 +15,6 @@ class EquipReader
         Equip *getEquip(void);
 
     protected:
-
         Equip *m_equip;
 };
 

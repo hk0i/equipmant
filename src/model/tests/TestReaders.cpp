@@ -9,17 +9,21 @@ class TestReaders : public QObject
     Q_OBJECT
 
 public:
-
     TestReaders() {}
 
 private slots:
-
     void initTestCase()
     {
         m_reader = EquipIoFactory::createReader(
             QString(TESTPATH "/1.equip")
         );
         m_equip = m_reader->getEquip();
+
+        m_writer = EquipIoFactory::createWriter(
+            QString(TESTPATH "/output-test.equip"),
+            *m_equip
+        );
+
     }
 
     void cleanupTestCase()
@@ -44,9 +48,18 @@ private slots:
         QCOMPARE(m_equip->getExtraData(), QString("//this suite illustrates files open properly\n"));
     }
 
+    void testWriterEquipFile()
+    {
+        m_writer->write(
+            QString(TESTPATH "/output-test.equip"),
+            *m_equip
+        );
+    }
+
 private:
 
     EquipReader *m_reader;
+    EquipWriter *m_writer;
     Equip *m_equip;
 };
 

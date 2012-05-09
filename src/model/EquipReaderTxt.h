@@ -6,12 +6,10 @@
 class EquipReaderTxt : public EquipReader
 {
     public:
-
         EquipReaderTxt(QString filename);
         void read(QString filename);
 
     private:
-
         bool parsePiece(const QString &lineBuffer);
 };
 
