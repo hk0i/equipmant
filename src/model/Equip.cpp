@@ -85,12 +85,13 @@ QString Equip::slotName(Slot slot) const
  * Returns a list of all of the non-empty equipment slots and what equipment
  * they hold
  */
-QMap<QString, QString> Equip::getEquipment(void) const
+QList< QPair<QString, QString> > Equip::getEquipment(void) const
 {
-    QMap<QString, QString> gear;
+    QList< QPair<QString, QString> > gear;
     foreach (Slot slot, m_slots.keys()) {
         qDebug() << slotName(slot) << m_slots[slot];
-        gear[slotName(slot)] = m_slots[slot];
+        gear.append(qMakePair(slotName(slot), m_slots[slot]));
+        // gear[slotName(slot)] = m_slots[slot];
     }
 
     return gear;

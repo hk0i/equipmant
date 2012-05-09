@@ -55,7 +55,7 @@ class Equip : public QObject
         QString get(Slot) const;
         QString get(const QString &slot);
         QString getExtraData(void) const;
-        QMap<QString, QString> getEquipment(void) const;
+        QList< QPair<QString, QString> > getEquipment(void) const;
 
         bool isEmpty(void) const;
 
