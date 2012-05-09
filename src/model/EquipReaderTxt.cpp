@@ -12,6 +12,7 @@ void EquipReaderTxt::read(QString filename)
 {
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qCritical() << "Unable to open file for reading: " << filename;
         return;
     }
 
