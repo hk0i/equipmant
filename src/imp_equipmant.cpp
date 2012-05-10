@@ -22,7 +22,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 void Imp_equipmant::fileNew(void)
 {
-    //std::cerr << this->height() << "x" << this->width() << std::endl;
     int newTabID = tabFiles->addTab(new equipTab(),"Untitled");
     tabFiles->setCurrentIndex(newTabID);
     statusbar->showMessage("Editing new document");
@@ -30,25 +29,27 @@ void Imp_equipmant::fileNew(void)
 
 void Imp_equipmant::fileOpen(void)
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "Open Equip Macro...",
-                                                        myLastFileDir, "Equipment Macros (*.txt *.equip)");
+    QString fileName = QFileDialog::getOpenFileName(
+        this,
+        "Open Equip Macro...",
+        myLastFileDir,
+        "Equipment Macros (*.txt *.equip)"
+    );
+
     if (fileName.isEmpty())
         return;
 
     //check if file is already open :)
-    equipTab *tab=0;
-     for (int i=0; i < tabFiles->count(); i++)
-    {
-        tab = (equipTab*)tabFiles->widget(i);
-        if (tab->getCurrentFile() == fileName)
-        {
+    equipTab *tab = 0;
+    for (int i = 0; i < tabFiles->count(); i++) {
+        tab = (equipTab*) tabFiles->widget(i);
+        if (tab->getCurrentFile() == fileName) {
             tabFiles->setCurrentIndex(i);
             return;
         }
     }
 
-
-    int newTabNum = tabFiles->addTab(new equipTab(),nameFromPath(fileName));
+    int newTabNum = tabFiles->addTab(new equipTab(), nameFromPath(fileName));
     tabFiles->setCurrentIndex(newTabNum);
     readFile(fileName);
     CTAB
@@ -58,12 +59,17 @@ void Imp_equipmant::fileOpen(void)
 void Imp_equipmant::fileClose(void)
 {
     CTAB
-    if (!cTab)
+    if (!cTab) {
         return;
-    if (cTab->getCurrentFile().isEmpty())
+    }
+
+    if (cTab->getCurrentFile().isEmpty()) {
         statusbar->showMessage("Document closed.");
-    else
+    }
+    else {
         statusbar->showMessage("Closed File: " + cTab->getCurrentFile());
+    }
+
     cTab->setCurrentFile("");
 
     // **** WARNING - I THINK THE ACTUAL WIDGETS NEED TO BE REMOVED ALSO ****
@@ -86,12 +92,16 @@ void Imp_equipmant::fileSave(void)
 void Imp_equipmant::fileSaveAs(void)
 {
     //pop dialog
-    QString fileName = QFileDialog::getSaveFileName(this, "Save Equip Macro As...",
-                                                    myLastFileDir, "Equipment Macros (*.txt *.equip)");
+    QString fileName = QFileDialog::getSaveFileName(
+        this,
+        "Save Equip Macro As...",
+        myLastFileDir,
+        "Equipment Macros (*.txt *.equip)"
+    );
+
     CTAB
     //check for a valid file...
-    if (!fileName.isEmpty())
-    {
+    if (!fileName.isEmpty()) {
         //check file extension, if any.
         int lastDot = fileName.lastIndexOf('.');
         if (lastDot > 0)
@@ -104,8 +114,10 @@ void Imp_equipmant::fileSaveAs(void)
             fileName += ".equip";
         writeFile(fileName);
     }
-    else
+    else {
         statusbar->showMessage("No filename selected. File has NOT been saved.");
+        return;
+    }
 
     cTab->setCurrentFile(fileName);
     tabFiles->setTabText(tabFiles->currentIndex(),nameFromPath(fileName));
@@ -130,7 +142,7 @@ void Imp_equipmant::fileRecent8(void) { openRecent(8); }
 void Imp_equipmant::fileRecent9(void) { openRecent(9); }
 void Imp_equipmant::fileClearRecent(void) { clearRecent(true); updateRecent(); }
 
-void Imp_equipmant::helpPPage(void)
+void Imp_equipmant::helpProjectPage(void)
 {
     QDesktopServices::openUrl(QUrl("http://sourceforge.net/projects/equipmant"));
 }
@@ -156,18 +168,6 @@ void Imp_equipmant::viewOutput(void) {
         cTab->swView->setCurrentIndex(1);
 }
 
-
-//tab slots
-/*void Imp_equipmant::tabFiles_changed(int)
-{
-    updateTitle();
-}*/
-/*void Imp_equipmant::tabText_changed(void)
-{
-    txtTextMode->setText(generateText());
-}*/
-
-
 //private functions
 /**
  * Saves current file
@@ -179,7 +179,6 @@ void Imp_equipmant::writeFile(void)
     {
         writeFile(cTab->getCurrentFile());
     }
-
 }
 
 
@@ -232,21 +231,11 @@ void Imp_equipmant::updateTitle(void)
     QTextStream ts(&title);
     CTAB
     if (cTab->getCurrentFile().isEmpty())
-        ts << "Equipmant Equipment Macro Manager v" << EQM_VERSION << " [New File] " << myEditMode;
+        ts << "Equipmant Equipment Macro Manager v" << EQM_VERSION;
     else
         ts << "Equipmant Equipment Macro Manager [" << nameFromPath(cTab->getCurrentFile()) << "] " << myEditMode;
     this->setWindowTitle(title);
 }
-
-/*void Imp_equipmant::setCurrentFile(QString newFile)
-{
-    CTAB
-    cTab->setCurrentFile(newFile);
-    if (newFile.isEmpty())        // if the new file is empty, set the title to say "No File"
-        updateTitle("[New File]");
-    else
-        updateTitle("[" + nameFromPath(cTab->getCurrentFile()) + "]");
-}*/
 
 void Imp_equipmant::saveData(void)
 {
@@ -289,7 +278,6 @@ void Imp_equipmant::loadData(void)
     for (numEle = 0; numEle < 9; numEle++)
     {
         myRecentDocs[numEle] = fin.readLine();
-        //std::cerr << "myRecentDocs[" << numEle << "]: " << myRecentDocs[numEle].toStdString().c_str() << std::endl;
         if (myRecentDocs[numEle].isEmpty())
             break;
     }

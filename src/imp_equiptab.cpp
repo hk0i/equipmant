@@ -135,6 +135,8 @@ void equipTab::readFile(QString fileName)
     if (myEquip) {
         delete myEquip;
     }
+
+    myCurrentFile = fileName;
     myEquip = reader->getEquip();
     updateUi();
 }

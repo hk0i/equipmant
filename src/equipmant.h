@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef __EQUIPMANT_H
 #define __EQUIPMANT_H
 
-#define EQM_VERSION "3.1.1"
+#define EQM_VERSION "4.0b"
 
 #define COMMENT strOut << "//";
 

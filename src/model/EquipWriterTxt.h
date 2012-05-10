@@ -9,6 +9,7 @@ class EquipWriterTxt : public EquipWriter
     public:
         EquipWriterTxt(const Equip &e);
         void write(const QString &filename);
+        QString text(void) const;
 
     private:
         /* data */

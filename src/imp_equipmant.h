@@ -72,7 +72,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             connect(mnuRecent9, SIGNAL(triggered()), this, SLOT(fileRecent9()));
             connect(mnuRecentClear, SIGNAL(triggered()), this, SLOT(fileClearRecent()));
 
-            connect(mnuHelpPPage, SIGNAL(triggered()), this, SLOT(helpPPage()));
+            connect(mnuHelpPPage, SIGNAL(triggered()), this, SLOT(helpProjectPage()));
             connect(mnuHelpWebsite, SIGNAL(triggered()), this, SLOT(helpWebsite()));
             connect(mnuHelpAbout, SIGNAL(triggered()), this, SLOT(helpAbout()));
 
@@ -121,7 +121,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         void fileRecent9 (void);
         void fileClearRecent(void);
 
-        void helpPPage(void);                //help-> project page
+        void helpProjectPage(void);                //help-> project page
         void helpWebsite(void);              //help-> webpage
         void helpAbout(void);
 

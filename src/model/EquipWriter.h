@@ -10,6 +10,7 @@ class EquipWriter
         EquipWriter(const Equip &e);
 
         virtual void write(const QString &filename) = 0;
+        virtual QString text(void) const = 0;
 
     protected:
         const Equip *m_equip;

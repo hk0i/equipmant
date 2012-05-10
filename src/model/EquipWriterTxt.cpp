@@ -6,6 +6,9 @@ EquipWriterTxt::EquipWriterTxt(const Equip &e)
 
 }
 
+/**
+ * Writes Equip data to file
+ */
 void EquipWriterTxt::write(const QString &filename)
 {
     QFile outFile(filename);
@@ -15,6 +18,16 @@ void EquipWriterTxt::write(const QString &filename)
     }
 
     QTextStream outStream(&outFile);
+    outStream << this->text();
+}
+
+/**
+ * Generates Equip data output returns it as a string.
+ */
+QString EquipWriterTxt::text(void) const
+{
+    QString output;
+    QTextStream outStream(&output);
 
     QList< QPair<QString, QString> > gear = m_equip->getEquipment();
 
@@ -28,4 +41,6 @@ void EquipWriterTxt::write(const QString &filename)
     if (!m_equip->getExtraData().isEmpty()) {
         outStream << '\n' << m_equip->getExtraData();
     }
+
+    return output;
 }
