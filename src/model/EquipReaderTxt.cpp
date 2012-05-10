@@ -53,7 +53,7 @@ bool EquipReaderTxt::parsePiece(const QString &lineBuffer)
 
     //check for version line and eat it up.
     QRegExp versionLine(
-        "^//Equipmant Script File",
+        "^//(Equipmant Script File|Get your copy)",
         Qt::CaseInsensitive
     );
     if (versionLine.indexIn(lineBuffer) >= 0)

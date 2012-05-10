@@ -34,14 +34,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #define CTAB equipTab *cTab = (equipTab*) tabFiles->currentWidget();
 
-
 class equipTab;
 
 class Imp_equipmant: public QMainWindow, Ui::MainWindow
 {
 
     Q_OBJECT
-    
+
     public:
         Imp_equipmant() : QMainWindow(), numRecent(0), myEditMode("(Edit Mode)")
         {
@@ -49,18 +48,18 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             updateTitle();        //set the title before anything else
             //load program data
             loadData();
-            
+
             //connections
             //menus
             connect(mnuFileNew, SIGNAL(triggered()), this, SLOT(fileNew()));
             connect(mnuFileOpen, SIGNAL(triggered()), this, SLOT(fileOpen()));
             connect(mnuFileClose, SIGNAL(triggered()), this, SLOT(fileClose()));
-            
+
             connect(mnuFileSave, SIGNAL(triggered()), this, SLOT(fileSave()));
             connect(mnuFileSaveAs, SIGNAL(triggered()), this, SLOT(fileSaveAs()));
-            
+
             connect(mnuFileQuit, SIGNAL(triggered()), this, SLOT(fileQuit()));
-            
+
             //recent file menus
             connect(mnuRecent1, SIGNAL(triggered()), this, SLOT(fileRecent1()));
             connect(mnuRecent2, SIGNAL(triggered()), this, SLOT(fileRecent2()));
@@ -83,7 +82,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
 
             //tab widget
             connect(tabFiles, SIGNAL(currentChanged(int)), this, SLOT(updateTitle()));
-            
+
             //buttons
             //connect(pbWriteFile,SIGNAL(clicked()), this, SLOT(writeFile_clicked()));
 
@@ -91,25 +90,25 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             //connect(tbAddToBin, SIGNAL(clicked()), this, SLOT(addToBin_clicked()));
             //connect(cmbExtraCommand, SIGNAL(currentIndexChanged(int)), this, SLOT(extraCmd_changed(int)));
 
-            
+
             //tabs
             //connect(tabWidget,SIGNAL(currentChanged(int)), this, SLOT(tabText_changed()));
-            
+
         }
-        
-    
+
+
     public slots:
-        
+
         //menus
         void fileNew(void);
         void fileOpen(void);
         void fileClose(void);
-        
+
         void fileSave(void);
         void fileSaveAs(void);
-        
+
         void fileQuit(void);
-        
+
         //recent file menus
         void fileRecent1(void);
         void fileRecent2(void);
@@ -122,30 +121,30 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         void fileRecent9 (void);
         void fileClearRecent(void);
 
-        void helpPPage(void);            //help-> project page
-        void helpWebsite(void);            //help-> webpage
-        void helpAbout(void);    
+        void helpPPage(void);                //help-> project page
+        void helpWebsite(void);              //help-> webpage
+        void helpAbout(void);
 
         //View Actions
         void viewEdit(void);
         void viewOutput(void);
-        
+
 
         //tabs
-        
+
     private:
-    
+
         void writeFile(void);
         void writeFile(QString);
         void readFile(QString);                    //opens file QString
         void updateTitle(void);                    //updates titlebar
-        
+
         //files that relate to getting/setting program data
         //these functions deal with getting/saving ALL data to files:
         void saveData(void);                    //saves program data to home folder. (i.e., last file location,
                                                 //recent docs.)
         void loadData(void);                    //loads program data (see above)
-        
+
         //recent file menu stuff
         void clearRecent(bool);                    //clears the recent files menu. (true clears recent file data.
                                                 // false only hides the menus.
@@ -161,17 +160,17 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         void openRecent(int);                    //opens recent document from myRecentDocs[int-1]
                                                 //the number passed is a number 1-9, not 0-8.
         void addToDataBin(QString);                //adds text to data bin; no endlines added.
-        
-        
+
+
         QString generateText(void);
         QString nameFromPath(QString);            //retrieves and returns the filename from an absolute path.
-    
+
         //variables
         int numRecent;                            //number of recent docs.
         QString myLastFileDir;                    //director where last accessed file is located.
         QString myRecentDocs[9];                //stack that stores recently accessed documents.
                                                 // (used for the recent menu)
-                                                
+
         QString myEditMode;                        //store the current edit mode:
                                                 // "Edit Mode"
                                                 //         or
@@ -179,7 +178,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
 
         //extra dialogs
         Imp_about    myAbout;                    //about screen dialog.
-        
+
 };
 
 #endif

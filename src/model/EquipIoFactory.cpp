@@ -1,5 +1,8 @@
 #include "EquipIoFactory.h"
 
+/**
+ * Creates the appropriate EquipReader based on the filename given
+ */
 EquipReader *EquipIoFactory::createReader(QString filename)
 {
     QFileInfo fileInfo(filename);
@@ -10,6 +13,9 @@ EquipReader *EquipIoFactory::createReader(QString filename)
     return NULL;
 }
 
+/**
+ * Creates the appropriate EquipWriter based on the format provided
+ */
 EquipWriter *EquipIoFactory::createWriter(const QString &format, const Equip &e)
 {
     if (format == "txt" || format == "equip")

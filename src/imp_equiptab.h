@@ -8,6 +8,8 @@
 #include <QFile>
 #include "equipmant.h"
 #include "ui_equipTab.h"
+#include "model/Equip.h"
+#include "model/EquipIoFactory.h"
 
 class equipTab : public QWidget, public Ui::equipTab
 {
@@ -17,10 +19,11 @@ class equipTab : public QWidget, public Ui::equipTab
     public:
 
         equipTab(QWidget *parent = 0)
-            : QWidget(parent), myParent(parent)
+            : QWidget(parent)
         {
             setupUi(this);
 
+            myEquip = new Equip();
 
             //connetions
             connect(swView, SIGNAL(currentChanged(int)), this, SLOT(viewModeChanged(int)));
@@ -32,16 +35,12 @@ class equipTab : public QWidget, public Ui::equipTab
 
 
     public:
-        void setExtraData(QString);
-        void setCurrentFile(QString);            //sets the current file name.
-        QString getCurrentFile(void);            //returns current file name.
+        void writeFile(QString);                //writes to specified file
+        void setCurrentFile(QString);           //sets the current file name.
+        QString getCurrentFile(void);           //returns current file name.
 
 
     public slots:
-
-        //buttons
-        void writeFile_clicked(void);
-
 
         //misc/unsorted
 
@@ -56,14 +55,14 @@ class equipTab : public QWidget, public Ui::equipTab
         void extraCmd_changed(int);
 
     private:
+        void updateUi(void);                //loads model data into ui
+        void updateModel(void);             //loads ui data into model
+
         void updateTitle(void);
         void addToDataBin(QString);
-        QString myCurrentFile;                    //the current document being modified
-        QString parsePiece(QString, QString);    //retrieves the piece of equipment given
-                                                //an input macro to parse, and which piece
-                                                //to look for (i.e., head, body, main, gloves)
-        QString myExtraData;                    //extra non-equipmant related data (job abilities/spell casting, etc...)
-        QWidget *myParent;
+        QString myCurrentFile;              //the current document being modified
+
+        Equip *myEquip;                     //Equip instance, should handle all data
 
 
 };

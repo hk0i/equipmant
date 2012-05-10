@@ -17,9 +17,15 @@ void EquipWriterTxt::write(const QString &filename)
     QTextStream outStream(&outFile);
 
     QList< QPair<QString, QString> > gear = m_equip->getEquipment();
+
     for (int i = 0; i < gear.count(); i++) {
         if (i % 4 == 0)
             outStream << '\n';
-        outStream << "input /equip " << gear[i].first << " \"" << gear[i].second << "\"\n";
+        if (!gear[i].second.isEmpty()) {
+            outStream << "input /equip " << gear[i].first << " \"" << gear[i].second << "\"\n";
+        }
+    }
+    if (!m_equip->getExtraData().isEmpty()) {
+        outStream << '\n' << m_equip->getExtraData();
     }
 }

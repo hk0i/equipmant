@@ -169,6 +169,9 @@ void Imp_equipmant::viewOutput(void) {
 
 
 //private functions
+/**
+ * Saves current file
+ */
 void Imp_equipmant::writeFile(void)
 {
     CTAB
@@ -188,15 +191,15 @@ QString Imp_equipmant::nameFromPath(QString fullPath)
     return ret.mid(lastSlash+1);
 }
 
+/**
+ * Saves file as ...
+ */
 void Imp_equipmant::writeFile(QString fName)
 {
-    QFile file(fName);
-    file.open(QIODevice::WriteOnly);
-    QTextStream fout(&file);
-
     CTAB
 
-    fout << cTab->generateText();
+    qDebug() << "Writing file...";
+    cTab->writeFile(fName);
 
     //set last file path
     myLastFileDir = fName.left(fName.lastIndexOf('/'));
