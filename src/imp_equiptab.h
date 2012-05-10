@@ -47,8 +47,6 @@ class equipTab : public QWidget, public Ui::equipTab
         void clearFields(void);
         void viewModeChanged(int);
         void readFile(QString);
-        QString generateText(void);
-
 
         //extra data widgets
         void addToBin_clicked(void);

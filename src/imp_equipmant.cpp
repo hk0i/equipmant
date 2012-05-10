@@ -52,8 +52,6 @@ void Imp_equipmant::fileOpen(void)
     int newTabNum = tabFiles->addTab(new equipTab(), nameFromPath(fileName));
     tabFiles->setCurrentIndex(newTabNum);
     readFile(fileName);
-    CTAB
-    cTab->txtTextMode->setText(cTab->generateText());
 }
 
 void Imp_equipmant::fileClose(void)
@@ -420,8 +418,6 @@ void Imp_equipmant::openRecent(int recNum)
     int newTabNum = tabFiles->addTab(new equipTab(),nameFromPath(fileName));
     tabFiles->setCurrentIndex(newTabNum);
     readFile(fileName);
-    CTAB
-    cTab->txtTextMode->setText(cTab->generateText());
 }
 
 

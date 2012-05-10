@@ -162,7 +162,6 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         void addToDataBin(QString);                //adds text to data bin; no endlines added.
 
 
-        QString generateText(void);
         QString nameFromPath(QString);            //retrieves and returns the filename from an absolute path.
 
         //variables

@@ -32,101 +32,31 @@ void equipTab::clearFields(void)
 
 void equipTab::viewModeChanged(int newPage)
 {
-    txtTextMode->setText(generateText());
-    if (newPage == 0)
-    {
-        /*myEditMode = "(Edit Mode)";
-        updateTitle();*/
+    updateModel();
+
+    //need to figure out a better way to handle this,
+    //removing the preview tab all together may be a possibility since I don't
+    //even know if it's being used.
+    QFileInfo fi(myCurrentFile);
+    QString ext = fi.suffix();
+    //use text as default extension in case no format is specified (i.e., new
+    //unsaved files)
+    if (ext.isEmpty()) {
+        ext = "txt";
     }
-    else
-    {
-        /*
-        myEditMode = "(View Output)";
-        updateTitle();*/
+    EquipWriter *w = EquipIoFactory::createWriter(
+        ext,
+        *myEquip
+    );
+
+    //always check for a writer!!
+    if (w) {
+        txtTextMode->setText(w->text());
+    }
+    else {
+        txtTextMode->setText("WriterError: No writer available");
     }
 
-}
-
-QString equipTab::generateText(void)
-{
-    QString result;
-    QTextStream strOut(&result);
-
-    //windows line terminations \r\n (since FF is a PC/windows game)
-
-    // if a text field is empty, it will write a commented line,
-    // this line acts as a placeholder, to make the layout of the
-    // files uniform. It is commented so that equipment won't be
-    // removed from the macro.
-
-    strOut << EQM_OPC1;    //Equipmant output comment1
-    strOut << EQM_OPC2; //equipmant output comment2 - both are #defined in imp_equipmant.h
-
-    if (txtMain->text().isEmpty())
-        COMMENT
-    strOut << "input /equip main \"" << txtMain->text() << "\"\r\n";
-
-    if (txtSub->text().isEmpty())
-        COMMENT
-    strOut << "input /equip sub \"" << txtSub->text() << "\"\r\n";
-
-    if (txtRanged->text().isEmpty())
-        COMMENT
-    strOut << "input /equip range \"" << txtRanged->text() << "\"\r\n";
-
-    if (txtAmmo->text().isEmpty())
-        COMMENT
-    strOut << "input /equip ammo \"" << txtAmmo->text() << "\"\r\n";
-
-    if (txtHead->text().isEmpty())
-        COMMENT
-    strOut << "input /equip head \"" << txtHead->text() << "\"\r\n";
-
-    if (txtNeck->text().isEmpty())
-        COMMENT
-    strOut << "input /equip neck \"" << txtNeck->text() << "\"\r\n";
-
-    if (txtLEar->text().isEmpty())
-        COMMENT
-    strOut << "input /equip L.Ear \"" << txtLEar->text() << "\"\r\n";
-
-    if (txtREar->text().isEmpty())
-        COMMENT
-    strOut << "input /equip R.Ear \"" << txtREar->text() << "\"\r\n";
-
-    if (txtBody->text().isEmpty())
-        COMMENT
-    strOut << "input /equip body \"" << txtBody->text() << "\"\r\n";
-
-    if (txtHands->text().isEmpty())
-        COMMENT
-    strOut << "input /equip hands \"" << txtHands->text() << "\"\r\n";
-
-    if (txtLRing->text().isEmpty())
-        COMMENT
-    strOut << "input /equip L.Ring \"" << txtLRing->text() << "\"\r\n";
-
-    if (txtRRing->text().isEmpty())
-        COMMENT
-    strOut << "input /equip R.Ring \"" << txtRRing->text() << "\"\r\n";
-
-    if (txtBack->text().isEmpty())
-        COMMENT
-    strOut << "input /equip back \"" << txtBack->text() << "\"\r\n";
-
-    if (txtWaist->text().isEmpty())
-        COMMENT
-    strOut << "input /equip waist \"" << txtWaist->text() << "\"\r\n";
-
-    if (txtLegs->text().isEmpty())
-        COMMENT
-    strOut << "input /equip legs \"" << txtLegs->text() << "\"\r\n";
-
-    if (txtFeet->text().isEmpty())
-        COMMENT
-    strOut << "input /equip feet \"" << txtFeet->text() << "\"\r\n";
-
-    return result;
 }
 
 void equipTab::readFile(QString fileName)
@@ -194,10 +124,6 @@ void equipTab::updateModel(void)
 // extra data widgets
 void equipTab::addToBin_clicked(void)
 {
-        /*txtExtraData->setText(txtExtraData->toPlainText() + "\r\n");
-    txtExtraData->setText(txt    */
-    /*if (!txtExtraData->toPlainText().isEmpty())
-        addToDataBin("\r\n");*/
     QString str;
     QTextStream qts(&str);
     bool ok = false;    //dummy variable used for dialog and commands

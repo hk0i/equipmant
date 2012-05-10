@@ -22,5 +22,6 @@ EquipWriter *EquipIoFactory::createWriter(const QString &format, const Equip &e)
         return new EquipWriterTxt(e);
 
     //return NULL if no writer can be found
+    qCritical() << "EquipIoFactory: No writer available for format: " << format;
     return NULL;
 }
