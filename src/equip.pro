@@ -17,7 +17,8 @@ HEADERS += equipmant.h \
            model/EquipReader.h \
            model/EquipReaderTxt.h \
            model/EquipWriter.h \
-           model/EquipWriterTxt.h
+           model/EquipWriterTxt.h \
+           ui/GScriptHighlighter.h
 FORMS += about.ui equipmant.ui equipTab.ui
 SOURCES += imp_about.cpp \
            imp_equipmant.cpp \
@@ -28,5 +29,6 @@ SOURCES += imp_about.cpp \
            model/EquipReader.cpp \
            model/EquipReaderTxt.cpp \
            model/EquipWriter.cpp \
-           model/EquipWriterTxt.cpp
+           model/EquipWriterTxt.cpp \
+           ui/GScriptHighlighter.cpp
 RESOURCES += equip.qrc

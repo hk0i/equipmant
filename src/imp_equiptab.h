@@ -7,10 +7,14 @@
 #include <QWidget>
 #include <QFile>
 #include <QCompleter>
+
 #include "equipmant.h"
 #include "ui_equipTab.h"
+
 #include "model/Equip.h"
 #include "model/EquipIoFactory.h"
+
+#include "ui/GScriptHighlighter.h"
 
 class equipTab : public QWidget, public Ui::equipTab
 {
@@ -56,6 +60,9 @@ class equipTab : public QWidget, public Ui::equipTab
                 qCritical() << "Could not load items.txt:"
                             << " auto-completion will not function properly";
             }
+
+            myHighlighter = new GScriptHighlighter(txtExtraData->document());
+            myPreviewHighlighter = new GScriptHighlighter(txtTextMode->document());
         }
 
 
@@ -85,8 +92,10 @@ class equipTab : public QWidget, public Ui::equipTab
         void addToDataBin(QString);
         QString myCurrentFile;              //the current document being modified
 
-        Equip *myEquip;                     //Equip instance, should handle all data
+        GScriptHighlighter *myHighlighter;  //syntax highlighters :D
+        GScriptHighlighter *myPreviewHighlighter;
 
+        Equip *myEquip;                     //Equip instance, should handle all data
 
 };
 
