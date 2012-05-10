@@ -6,6 +6,7 @@
 #include <QTextStream>
 #include <QWidget>
 #include <QFile>
+#include <QCompleter>
 #include "equipmant.h"
 #include "ui_equipTab.h"
 #include "model/Equip.h"
@@ -31,6 +32,30 @@ class equipTab : public QWidget, public Ui::equipTab
             //extra data widgets
             connect(tbAddToBin, SIGNAL(clicked()), this, SLOT(addToBin_clicked()));
             connect(cmbExtraCommand, SIGNAL(currentIndexChanged(int)), this, SLOT(extraCmd_changed(int)));
+
+            //load and set up auto completion
+            QFile items("items.txt");
+            if (items.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                QTextStream in(&items);
+                QStringList completionWords;
+
+                while (!in.atEnd()) {
+                    completionWords << in.readLine();
+                }
+
+                QCompleter *completer = new QCompleter(completionWords, this);
+                completer->setCaseSensitivity(Qt::CaseInsensitive);
+                QList<QLineEdit *> allSlots = this->findChildren<QLineEdit *>(
+                    QRegExp("^txt")
+                );
+                foreach (QLineEdit *l, allSlots) {
+                    l->setCompleter(completer);
+                }
+            }
+            else {
+                qCritical() << "Could not load items.txt:"
+                            << " auto-completion will not function properly";
+            }
         }
 
 
