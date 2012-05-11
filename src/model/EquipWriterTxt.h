@@ -3,6 +3,7 @@
 
 #include <QtCore>
 #include "EquipWriter.h"
+#include "../equipmant.h"
 
 class EquipWriterTxt : public EquipWriter
 {

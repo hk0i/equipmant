@@ -31,8 +31,10 @@ QString EquipWriterTxt::text(void) const
 
     QList< QPair<QString, QString> > gear = m_equip->getEquipment();
 
+    outStream << EQM_OPC1 << EQM_OPC2;
+
     for (int i = 0; i < gear.count(); i++) {
-        if (i % 4 == 0)
+        if (i % 4 == 0 && i > 0)
             outStream << '\n';
         if (!gear[i].second.isEmpty()) {
             outStream << "input /equip " << gear[i].first << " \"" << gear[i].second << "\"\n";
