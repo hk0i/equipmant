@@ -11,6 +11,7 @@ GScriptHighlighter::GScriptHighlighter(QTextDocument *parent)
 
     QStringList keywords;
     keywords << "\\binput\\b"
+        << "\\bpause\\b"
         << "\\bMain\\b"
         << "\\bSub\\b"
         << "\\bRange\\b"
@@ -50,9 +51,17 @@ GScriptHighlighter::GScriptHighlighter(QTextDocument *parent)
     rule.format = m_comment_format;
     m_highlight_rules << rule;
 
+    //target formatting
     m_target_format.setFontWeight(QFont::Bold);
     rule.pattern = QRegExp("<[^>]+>");
     rule.format = m_target_format;
+    m_highlight_rules << rule;
+
+    //number formatting
+    m_number_format.setFontWeight(QFont::Bold);
+    m_number_format.setForeground(QColor("#CE5C00"));
+    rule.pattern = QRegExp("\\b\\d+\\b");
+    rule.format = m_number_format;
     m_highlight_rules << rule;
 }
 

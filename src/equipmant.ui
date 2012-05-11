@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,263 +10,267 @@
     <height>536</height>
    </rect>
   </property>
-  <property name="minimumSize" >
+  <property name="minimumSize">
    <size>
     <width>509</width>
     <height>536</height>
    </size>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Equipmant Equipment Macro Manager</string>
   </property>
-  <widget class="QWidget" name="centralwidget" >
-   <layout class="QVBoxLayout" name="verticalLayout_2" >
+  <property name="windowIcon">
+   <iconset resource="equip.qrc">
+    <normaloff>:/img/res/ equip_icon_64.png</normaloff>:/img/res/ equip_icon_64.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QTabWidget" name="tabFiles" >
-      <widget class="equipTab" name="tab" >
-       <attribute name="title" >
+     <widget class="QTabWidget" name="tabFiles">
+      <widget class="equipTab" name="tab">
+       <attribute name="title">
         <string>Untitled</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout" />
+       <layout class="QVBoxLayout" name="verticalLayout"/>
       </widget>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar" >
-   <property name="geometry" >
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>509</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu_File" >
-    <property name="title" >
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
      <string>&amp;File</string>
     </property>
-    <widget class="QMenu" name="mnuFileOpenRecent" >
-     <property name="title" >
+    <widget class="QMenu" name="mnuFileOpenRecent">
+     <property name="title">
       <string>Open Recent</string>
      </property>
-     <addaction name="mnuRecent1" />
-     <addaction name="mnuRecent2" />
-     <addaction name="mnuRecent3" />
-     <addaction name="mnuRecent4" />
-     <addaction name="mnuRecent5" />
-     <addaction name="mnuRecent6" />
-     <addaction name="mnuRecent7" />
-     <addaction name="mnuRecent8" />
-     <addaction name="mnuRecent9" />
-     <addaction name="separator" />
-     <addaction name="mnuRecentClear" />
+     <addaction name="mnuRecent1"/>
+     <addaction name="mnuRecent2"/>
+     <addaction name="mnuRecent3"/>
+     <addaction name="mnuRecent4"/>
+     <addaction name="mnuRecent5"/>
+     <addaction name="mnuRecent6"/>
+     <addaction name="mnuRecent7"/>
+     <addaction name="mnuRecent8"/>
+     <addaction name="mnuRecent9"/>
+     <addaction name="separator"/>
+     <addaction name="mnuRecentClear"/>
     </widget>
-    <addaction name="mnuFileNew" />
-    <addaction name="mnuFileOpen" />
-    <addaction name="mnuFileOpenRecent" />
-    <addaction name="mnuFileClose" />
-    <addaction name="separator" />
-    <addaction name="mnuFileSave" />
-    <addaction name="mnuFileSaveAs" />
-    <addaction name="separator" />
-    <addaction name="mnuFileQuit" />
+    <addaction name="mnuFileNew"/>
+    <addaction name="mnuFileOpen"/>
+    <addaction name="mnuFileOpenRecent"/>
+    <addaction name="mnuFileClose"/>
+    <addaction name="separator"/>
+    <addaction name="mnuFileSave"/>
+    <addaction name="mnuFileSaveAs"/>
+    <addaction name="separator"/>
+    <addaction name="mnuFileQuit"/>
    </widget>
-   <widget class="QMenu" name="menu_Help" >
-    <property name="title" >
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
      <string>&amp;Help</string>
     </property>
-    <addaction name="mnuHelpPPage" />
-    <addaction name="mnuHelpWebsite" />
-    <addaction name="separator" />
-    <addaction name="mnuHelpAbout" />
+    <addaction name="mnuHelpPPage"/>
+    <addaction name="mnuHelpWebsite"/>
+    <addaction name="separator"/>
+    <addaction name="mnuHelpAbout"/>
    </widget>
-   <widget class="QMenu" name="menu_View" >
-    <property name="title" >
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
      <string>&amp;View</string>
     </property>
-    <addaction name="mnuViewEdit" />
-    <addaction name="mnuViewOutput" />
+    <addaction name="mnuViewEdit"/>
+    <addaction name="mnuViewOutput"/>
    </widget>
-   <addaction name="menu_File" />
-   <addaction name="menu_View" />
-   <addaction name="menu_Help" />
+   <addaction name="menu_File"/>
+   <addaction name="menu_View"/>
+   <addaction name="menu_Help"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar" />
-  <widget class="QToolBar" name="toolBar" >
-   <property name="minimumSize" >
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="minimumSize">
     <size>
      <width>0</width>
      <height>0</height>
     </size>
    </property>
-   <property name="orientation" >
+   <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
-   <property name="iconSize" >
+   <property name="iconSize">
     <size>
      <width>16</width>
      <height>16</height>
     </size>
    </property>
-   <property name="toolButtonStyle" >
+   <property name="toolButtonStyle">
     <enum>Qt::ToolButtonIconOnly</enum>
    </property>
-   <attribute name="toolBarArea" >
+   <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
-   <attribute name="toolBarBreak" >
+   <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="mnuFileNew" />
-   <addaction name="mnuFileOpen" />
-   <addaction name="mnuFileClose" />
-   <addaction name="mnuFileSave" />
-   <addaction name="mnuFileSaveAs" />
-   <addaction name="separator" />
-   <addaction name="mnuViewEdit" />
-   <addaction name="mnuViewOutput" />
+   <addaction name="mnuFileNew"/>
+   <addaction name="mnuFileOpen"/>
+   <addaction name="mnuFileClose"/>
+   <addaction name="mnuFileSave"/>
+   <addaction name="mnuFileSaveAs"/>
+   <addaction name="separator"/>
+   <addaction name="mnuViewEdit"/>
+   <addaction name="mnuViewOutput"/>
   </widget>
-  <action name="mnuFileNew" >
-   <property name="icon" >
-    <iconset resource="equip.qrc" >
+  <action name="mnuFileNew">
+   <property name="icon">
+    <iconset resource="equip.qrc">
      <normaloff>:/img/res/new.png</normaloff>:/img/res/new.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>&amp;New</string>
    </property>
-   <property name="shortcut" >
+   <property name="shortcut">
     <string>Ctrl+N</string>
    </property>
   </action>
-  <action name="mnuFileOpen" >
-   <property name="icon" >
-    <iconset resource="equip.qrc" >
+  <action name="mnuFileOpen">
+   <property name="icon">
+    <iconset resource="equip.qrc">
      <normaloff>:/img/res/open.png</normaloff>:/img/res/open.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>&amp;Open...</string>
    </property>
-   <property name="shortcut" >
+   <property name="shortcut">
     <string>Ctrl+O</string>
    </property>
   </action>
-  <action name="mnuFileSave" >
-   <property name="icon" >
-    <iconset resource="equip.qrc" >
+  <action name="mnuFileSave">
+   <property name="icon">
+    <iconset resource="equip.qrc">
      <normaloff>:/img/res/save.png</normaloff>:/img/res/save.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>&amp;Save</string>
    </property>
-   <property name="shortcut" >
+   <property name="shortcut">
     <string>Ctrl+S</string>
    </property>
   </action>
-  <action name="mnuFileSaveAs" >
-   <property name="icon" >
-    <iconset resource="equip.qrc" >
+  <action name="mnuFileSaveAs">
+   <property name="icon">
+    <iconset resource="equip.qrc">
      <normaloff>:/img/res/saveas.png</normaloff>:/img/res/saveas.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>Save &amp;As...</string>
    </property>
-   <property name="shortcut" >
+   <property name="shortcut">
     <string>Ctrl+Shift+S</string>
    </property>
   </action>
-  <action name="mnuFileQuit" >
-   <property name="text" >
+  <action name="mnuFileQuit">
+   <property name="text">
     <string>&amp;Exit</string>
    </property>
-   <property name="shortcut" >
+   <property name="shortcut">
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="mnuFileClose" >
-   <property name="icon" >
-    <iconset resource="equip.qrc" >
+  <action name="mnuFileClose">
+   <property name="icon">
+    <iconset resource="equip.qrc">
      <normaloff>:/img/res/close.png</normaloff>:/img/res/close.png</iconset>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>&amp;Close</string>
    </property>
-   <property name="shortcut" >
+   <property name="shortcut">
     <string/>
    </property>
   </action>
-  <action name="mnuRecent1" >
-   <property name="text" >
+  <action name="mnuRecent1">
+   <property name="text">
     <string>&amp;1. $RECENT1</string>
    </property>
   </action>
-  <action name="mnuRecent2" >
-   <property name="text" >
+  <action name="mnuRecent2">
+   <property name="text">
     <string>&amp;2. $RECENT2</string>
    </property>
   </action>
-  <action name="mnuRecent3" >
-   <property name="text" >
+  <action name="mnuRecent3">
+   <property name="text">
     <string>&amp;3. $RECENT3</string>
    </property>
   </action>
-  <action name="mnuRecent4" >
-   <property name="text" >
+  <action name="mnuRecent4">
+   <property name="text">
     <string>&amp;4. $RECENT4</string>
    </property>
   </action>
-  <action name="mnuRecent5" >
-   <property name="text" >
+  <action name="mnuRecent5">
+   <property name="text">
     <string>&amp;5. $RECENT5</string>
    </property>
   </action>
-  <action name="mnuRecent6" >
-   <property name="text" >
+  <action name="mnuRecent6">
+   <property name="text">
     <string>&amp;6. $RECENT6</string>
    </property>
   </action>
-  <action name="mnuRecent7" >
-   <property name="text" >
+  <action name="mnuRecent7">
+   <property name="text">
     <string>&amp;7. $RECENT7</string>
    </property>
   </action>
-  <action name="mnuRecent8" >
-   <property name="text" >
+  <action name="mnuRecent8">
+   <property name="text">
     <string>&amp;8. $RECENT8</string>
    </property>
   </action>
-  <action name="mnuRecent9" >
-   <property name="text" >
+  <action name="mnuRecent9">
+   <property name="text">
     <string>&amp;9. $RECENT9</string>
    </property>
   </action>
-  <action name="mnuRecentClear" >
-   <property name="text" >
+  <action name="mnuRecentClear">
+   <property name="text">
     <string>C&amp;lear Menu</string>
    </property>
   </action>
-  <action name="mnuHelpAbout" >
-   <property name="text" >
+  <action name="mnuHelpAbout">
+   <property name="text">
     <string>&amp;About ...</string>
    </property>
   </action>
-  <action name="mnuHelpWebsite" >
-   <property name="text" >
+  <action name="mnuHelpWebsite">
+   <property name="text">
     <string>Equipmant &amp;Website ...</string>
    </property>
   </action>
-  <action name="mnuHelpPPage" >
-   <property name="text" >
+  <action name="mnuHelpPPage">
+   <property name="text">
     <string>Equipmant &amp;Project Page ...</string>
    </property>
   </action>
-  <action name="mnuViewEdit" >
-   <property name="text" >
+  <action name="mnuViewEdit">
+   <property name="text">
     <string>&amp;Edit Mode</string>
    </property>
   </action>
-  <action name="mnuViewOutput" >
-   <property name="text" >
+  <action name="mnuViewOutput">
+   <property name="text">
     <string>&amp;View Output</string>
    </property>
   </action>
@@ -279,7 +284,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="equip.qrc" />
+  <include location="equip.qrc"/>
  </resources>
  <connections/>
 </ui>

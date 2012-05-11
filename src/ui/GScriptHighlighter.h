@@ -32,6 +32,7 @@ class GScriptHighlighter : public QSyntaxHighlighter
         QTextCharFormat m_comment_format;
         QTextCharFormat m_quote_format;
         QTextCharFormat m_target_format;
+        QTextCharFormat m_number_format;
 
 };
 

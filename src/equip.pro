@@ -32,3 +32,7 @@ SOURCES += imp_about.cpp \
            model/EquipWriterTxt.cpp \
            ui/GScriptHighlighter.cpp
 RESOURCES += equip.qrc
+
+OTHER_FILES += \
+    items.txt \
+    equip.ico
