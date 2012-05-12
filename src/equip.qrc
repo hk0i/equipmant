@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/img" >
+    <qresource prefix="/img">
         <file>res/ equip_icon_64.png</file>
         <file>res/close.png</file>
         <file>res/new.png</file>
