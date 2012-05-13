@@ -69,6 +69,7 @@ void equipTab::readFile(QString fileName)
     myCurrentFile = fileName;
     myEquip = reader->getEquip();
     updateUi();
+    setModified(false);
 }
 
 void equipTab::updateUi(void)
@@ -219,12 +220,6 @@ QString equipTab::getCurrentFile(void)
 void equipTab::setCurrentFile(QString newFile)
 {
     myCurrentFile = newFile;
-    updateTitle();
-}
-
-void equipTab::updateTitle(void)
-{
-    //figure out how to update the tab title from here.
 }
 
 void equipTab::writeFile(QString filename)
@@ -242,3 +237,6 @@ void equipTab::writeFile(QString filename)
         qCritical() << "Could not find an appropriate writer for extension: " << ext;
     }
 }
+
+void equipTab::setModified(bool modified) { myModified = modified; }
+bool equipTab::getModified(void) const { return myModified; }

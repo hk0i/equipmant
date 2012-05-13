@@ -81,19 +81,16 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             connect(mnuViewOutput, SIGNAL(triggered()), this, SLOT(viewOutput()));
 
             //tab widget
-            connect(tabFiles, SIGNAL(currentChanged(int)), this, SLOT(updateTitle()));
             connect(tabFiles, SIGNAL(tabCloseRequested(int)), this, SLOT(fileClose()));
 
             //buttons
             //connect(pbWriteFile,SIGNAL(clicked()), this, SLOT(writeFile_clicked()));
 
             //extra data widgets
-            //connect(tbAddToBin, SIGNAL(clicked()), this, SLOT(addToBin_clicked()));
-            //connect(cmbExtraCommand, SIGNAL(currentIndexChanged(int)), this, SLOT(extraCmd_changed(int)));
-
 
             //tabs
             //connect(tabWidget,SIGNAL(currentChanged(int)), this, SLOT(tabText_changed()));
+            setupTabSignals(0);
 
         }
 
@@ -132,13 +129,14 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
 
 
         //tabs
+        void updateTitle(void);                    //updates titlebar
+        void modified(void);                    //tab contents gets modified
 
     private:
 
         void writeFile(void);
         void writeFile(QString);
         void readFile(QString);                    //opens file QString
-        void updateTitle(void);                    //updates titlebar
 
         //files that relate to getting/setting program data
         //these functions deal with getting/saving ALL data to files:
@@ -161,6 +159,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         void openRecent(int);                    //opens recent document from myRecentDocs[int-1]
                                                 //the number passed is a number 1-9, not 0-8.
         void addToDataBin(QString);                //adds text to data bin; no endlines added.
+        void setupTabSignals(int);              //sets up tab signals for title updating
 
 
         QString nameFromPath(QString);            //retrieves and returns the filename from an absolute path.

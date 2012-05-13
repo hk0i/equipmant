@@ -29,6 +29,7 @@ class equipTab : public QWidget, public Ui::equipTab
             setupUi(this);
 
             myEquip = new Equip();
+            myModified = false;
 
             //connetions
             connect(swView, SIGNAL(currentChanged(int)), this, SLOT(viewModeChanged(int)));
@@ -71,6 +72,8 @@ class equipTab : public QWidget, public Ui::equipTab
         void setCurrentFile(QString);           //sets the current file name.
         QString getCurrentFile(void);           //returns current file name.
 
+        bool getModified(void) const;           //returns whether or not file is modified
+
 
     public slots:
 
@@ -84,12 +87,15 @@ class equipTab : public QWidget, public Ui::equipTab
         void addToBin_clicked(void);
         void extraCmd_changed(int);
 
+        void setModified(bool modified = true);                 //sets whether the file was modified or not
+
     private:
         void updateUi(void);                //loads model data into ui
         void updateModel(void);             //loads ui data into model
 
-        void updateTitle(void);
         void addToDataBin(QString);
+
+        bool myModified;                    //keeps track of whether file was modified or not
         QString myCurrentFile;              //the current document being modified
 
         GScriptHighlighter *myHighlighter;  //syntax highlighters :D

@@ -23,6 +23,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 void Imp_equipmant::fileNew(void)
 {
     int newTabID = tabFiles->addTab(new equipTab(),"Untitled");
+    setupTabSignals(newTabID);
+
     tabFiles->setCurrentIndex(newTabID);
     statusbar->showMessage("Editing new document");
 }
@@ -50,8 +52,10 @@ void Imp_equipmant::fileOpen(void)
     }
 
     int newTabNum = tabFiles->addTab(new equipTab(), nameFromPath(fileName));
+
     tabFiles->setCurrentIndex(newTabNum);
     readFile(fileName);
+    setupTabSignals(newTabNum);
 }
 
 void Imp_equipmant::fileClose(void)
@@ -78,8 +82,7 @@ void Imp_equipmant::fileClose(void)
 void Imp_equipmant::fileSave(void)
 {
     CTAB
-    if (cTab->getCurrentFile().isEmpty())
-    {
+    if (cTab->getCurrentFile().isEmpty()) {
         fileSaveAs();
     }
     else {
@@ -173,9 +176,10 @@ void Imp_equipmant::viewOutput(void) {
 void Imp_equipmant::writeFile(void)
 {
     CTAB
-    if(!cTab->getCurrentFile().isEmpty())
-    {
+    if(!cTab->getCurrentFile().isEmpty()) {
         writeFile(cTab->getCurrentFile());
+        cTab->setModified(false);
+        updateTitle();
     }
 }
 
@@ -227,7 +231,20 @@ void Imp_equipmant::updateTitle(void)
 {
     QString title;
     QTextStream ts(&title);
+    qDebug() << "Updating title main form";
     CTAB
+
+    //update tab title on changes
+    int currentIndex = tabFiles->currentIndex();
+    QString currentText = tabFiles->tabText(currentIndex);
+    if (cTab->getModified() && currentText.right(2) != " *") {
+        tabFiles->setTabText(currentIndex, currentText + " *");
+    }
+    if (!cTab->getModified() && currentText.right(2) == " *") {
+        currentText.chop(2);
+        tabFiles->setTabText(currentIndex, currentText);
+    }
+
     if (cTab->getCurrentFile().isEmpty())
         ts << "Equipmant Equipment Macro Manager v" << EQM_VERSION;
     else
@@ -420,4 +437,24 @@ void Imp_equipmant::openRecent(int recNum)
     readFile(fileName);
 }
 
+void Imp_equipmant::modified(void)
+{
+    CTAB
+    cTab->setModified();
+    updateTitle();
+}
 
+void Imp_equipmant::setupTabSignals(int tabIndex)
+{
+    equipTab *tab = (equipTab *)tabFiles->widget(tabIndex);
+    QList<QLineEdit *> lineEdits = tab->findChildren<QLineEdit *>(QRegExp("^txt"));
+    for (int i = 0; i < lineEdits.count(); i++) {
+        qDebug() << "Registering QLineEdit" << lineEdits[i];
+        connect(lineEdits[i], SIGNAL(textChanged(QString)), this, SLOT(modified(void)));
+    }
+    // QTextEdit *scriptWidget = tab->findChild<QTextEdit *>("txtExtraData");
+    //@TODO
+    //need to change this widget to a QPlainTextEdit I think... then it won't
+    //bug
+    // connect(scriptWidget, SIGNAL(textChanged(void)), this, SLOT(modified(void)));
+}
