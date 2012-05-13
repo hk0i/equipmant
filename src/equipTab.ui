@@ -45,7 +45,7 @@
        <item>
         <layout class="QGridLayout" name="gridLayout">
          <property name="horizontalSpacing">
-          <number>6</number>
+          <number>-1</number>
          </property>
          <property name="verticalSpacing">
           <number>0</number>
@@ -382,12 +382,6 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <widget class="QTextEdit" name="txtExtraData">
-         <property name="font">
-          <font>
-           <family>Lucida Console</family>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
          <property name="verticalScrollBarPolicy">
           <enum>Qt::ScrollBarAlwaysOn</enum>
          </property>

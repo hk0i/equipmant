@@ -19,14 +19,13 @@
   <property name="windowTitle">
    <string>Equipmant Equipment Macro Manager</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="equip.qrc">
-    <normaloff>:/img/res/ equip_icon_64.png</normaloff>:/img/res/ equip_icon_64.png</iconset>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QTabWidget" name="tabFiles">
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
       <widget class="equipTab" name="tab">
        <attribute name="title">
         <string>Untitled</string>
@@ -43,7 +42,7 @@
      <x>0</x>
      <y>0</y>
      <width>509</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -196,7 +195,7 @@
     <string>&amp;Close</string>
    </property>
    <property name="shortcut">
-    <string/>
+    <string>Ctrl+W</string>
    </property>
   </action>
   <action name="mnuRecent1">

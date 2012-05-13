@@ -82,6 +82,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
 
             //tab widget
             connect(tabFiles, SIGNAL(currentChanged(int)), this, SLOT(updateTitle()));
+            connect(tabFiles, SIGNAL(tabCloseRequested(int)), this, SLOT(fileClose()));
 
             //buttons
             //connect(pbWriteFile,SIGNAL(clicked()), this, SLOT(writeFile_clicked()));
