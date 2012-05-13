@@ -208,7 +208,6 @@ void Imp_equipmant::writeFile(QString fName)
     saveData();    //save data now in case of a crash ;D
     statusbar->showMessage(fName + " saved.");
 
-
 }
 
 void Imp_equipmant::readFile(QString fileName)
@@ -441,6 +440,8 @@ void Imp_equipmant::modified(void)
 {
     CTAB
     cTab->setModified();
+    //always set modified back to false after we trigger the title update
+    cTab->txtExtraData->document()->setModified(false);
     updateTitle();
 }
 
@@ -452,9 +453,6 @@ void Imp_equipmant::setupTabSignals(int tabIndex)
         qDebug() << "Registering QLineEdit" << lineEdits[i];
         connect(lineEdits[i], SIGNAL(textChanged(QString)), this, SLOT(modified(void)));
     }
-    // QTextEdit *scriptWidget = tab->findChild<QTextEdit *>("txtExtraData");
-    //@TODO
-    //need to change this widget to a QPlainTextEdit I think... then it won't
-    //bug
-    // connect(scriptWidget, SIGNAL(textChanged(void)), this, SLOT(modified(void)));
+    QPlainTextEdit *scriptWidget = tab->findChild<QPlainTextEdit *>("txtExtraData");
+    connect(scriptWidget, SIGNAL(modificationChanged(bool)), this, SLOT(modified(void)));
 }

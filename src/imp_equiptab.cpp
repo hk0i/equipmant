@@ -68,8 +68,8 @@ void equipTab::readFile(QString fileName)
 
     myCurrentFile = fileName;
     myEquip = reader->getEquip();
-    updateUi();
     setModified(false);
+    updateUi();
 }
 
 void equipTab::updateUi(void)
@@ -94,7 +94,7 @@ void equipTab::updateUi(void)
     txtLegs->setText(myEquip->get(Equip::Legs));
     txtFeet->setText(myEquip->get(Equip::Feet));
 
-    txtExtraData->setText(myEquip->getExtraData());
+    txtExtraData->setPlainText(myEquip->getExtraData());
 }
 
 void equipTab::updateModel(void)
@@ -209,7 +209,7 @@ void equipTab::extraCmd_changed(int newIndex)
 
 void equipTab::addToDataBin(QString textToAdd)
 {
-    txtExtraData->setText(txtExtraData->toPlainText() + textToAdd);
+    txtExtraData->setPlainText(txtExtraData->toPlainText() + textToAdd);
 }
 
 QString equipTab::getCurrentFile(void)
