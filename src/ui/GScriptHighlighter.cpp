@@ -12,6 +12,7 @@ GScriptHighlighter::GScriptHighlighter(QTextDocument *parent)
     QStringList keywords;
     keywords << "\\binput\\b"
         << "\\bpause\\b"
+        << "\\bexec\\b"
         << "\\bMain\\b"
         << "\\bSub\\b"
         << "\\bRange\\b"
@@ -32,17 +33,25 @@ GScriptHighlighter::GScriptHighlighter(QTextDocument *parent)
         << "\\bLegs\\b"
         << "\\bFeet\\b";
 
+    //quoted string formatting
+    m_quote_format.setForeground(QColor("#A40000"));
+    rule.pattern = QRegExp("\"[^\"]+\"");
+    rule.format = m_quote_format;
+    m_highlight_rules << rule;
+
+    //exec arg formatting
+    //qt4 regex does not support lookbehinds, so this will paint it red
+    //and the foreach below will paint the exec blue
+    rule.pattern = QRegExp("exec [^\n]*$");
+    rule.format = m_quote_format;
+    m_highlight_rules << rule;
+
     foreach(const QString &pattern, keywords) {
         rule.pattern = QRegExp(pattern);
         rule.format = m_keyword_format;
         m_highlight_rules << rule;
     }
 
-    //quoted string formatting
-    m_quote_format.setForeground(QColor("#A40000"));
-    rule.pattern = QRegExp("\"[^\"]+\"");
-    rule.format = m_quote_format;
-    m_highlight_rules << rule;
 
     //comment formatting
     m_comment_format.setForeground(QColor("#4E9A06"));
@@ -51,9 +60,10 @@ GScriptHighlighter::GScriptHighlighter(QTextDocument *parent)
     rule.format = m_comment_format;
     m_highlight_rules << rule;
 
+
     //target formatting
     m_target_format.setFontWeight(QFont::Bold);
-    rule.pattern = QRegExp("<[^>]+>");
+    rule.pattern = QRegExp("<(t|bt|me|st|stpc|stnpc|stpt)>");
     rule.format = m_target_format;
     m_highlight_rules << rule;
 
@@ -62,6 +72,18 @@ GScriptHighlighter::GScriptHighlighter(QTextDocument *parent)
     m_number_format.setForeground(QColor("#CE5C00"));
     rule.pattern = QRegExp("\\b\\d+\\b");
     rule.format = m_number_format;
+    m_highlight_rules << rule;
+
+    //party chat formatting
+    m_party_format.setForeground(QColor("#3465A4"));
+    rule.pattern = QRegExp("/(p|party)\\b .*$");
+    rule.format = m_party_format;
+    m_highlight_rules << rule;
+
+    //party chat formatting
+    m_linkshell_format.setForeground(QColor("#4E9A06"));
+    rule.pattern = QRegExp("/(l|linkshell)\\b .*$");
+    rule.format = m_linkshell_format;
     m_highlight_rules << rule;
 }
 
