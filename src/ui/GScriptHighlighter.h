@@ -37,6 +37,8 @@ class GScriptHighlighter : public QSyntaxHighlighter
         //chat syntax highlighting rules
         QTextCharFormat m_party_format;
         QTextCharFormat m_linkshell_format;
+        QTextCharFormat m_echo_format;
+
 
 };
 

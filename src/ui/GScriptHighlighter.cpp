@@ -85,6 +85,12 @@ GScriptHighlighter::GScriptHighlighter(QTextDocument *parent)
     rule.pattern = QRegExp("/(l|linkshell)\\b .*$");
     rule.format = m_linkshell_format;
     m_highlight_rules << rule;
+
+    //echo chat formatting
+    m_echo_format.setForeground(QColor("#c4a000"));
+    rule.pattern = QRegExp("(/echo)\\b .*$");
+    rule.format = m_echo_format;
+    m_highlight_rules << rule;
 }
 
 void GScriptHighlighter::highlightBlock(const QString &text)
