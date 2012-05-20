@@ -188,7 +188,7 @@ QString Imp_equipmant::nameFromPath(QString fullPath)
 {
     QString ret(QDir::fromNativeSeparators(fullPath));
     int lastSlash = -1;
-    lastSlash = ret.lastIndexOf('/', ret.lastIndexOf('/')-1);
+    lastSlash = ret.lastIndexOf('/', ret.lastIndexOf('/') - 1);
     return ret.mid(lastSlash+1);
 }
 
@@ -264,9 +264,9 @@ void Imp_equipmant::saveData(void)
     file.open(QIODevice::WriteOnly);
     QTextStream fout(&file);
 
-    fout << myLastFileDir << "\r\n";
+    fout << myLastFileDir << "\n";
     for (int i = 0; i < numRecent; i++)
-        fout << myRecentDocs[i] << "\r\n";
+        fout << myRecentDocs[i] << "\n";
 
 }
 void Imp_equipmant::loadData(void)
@@ -289,8 +289,7 @@ void Imp_equipmant::loadData(void)
 
     //load recent documents into our data structure
     int numEle = 0;
-    for (numEle = 0; numEle < 9; numEle++)
-    {
+    for (numEle = 0; numEle < 9; numEle++) {
         myRecentDocs[numEle] = fin.readLine();
         if (myRecentDocs[numEle].isEmpty())
             break;
@@ -315,8 +314,7 @@ void Imp_equipmant::clearRecent(bool clearCache)
     mnuRecent9->setVisible(false);
 
     //clear data.
-    if (clearCache)
-    {
+    if (clearCache) {
         for (int i = 0; i < 9; i++)
             myRecentDocs[i].clear();
         numRecent = 0;
@@ -383,17 +381,16 @@ void Imp_equipmant::addRecent(QString newRecent)
     int index = findRecent(newRecent);
 
     //if it's in the recent list..
-    if (index >= 0)
-    {
+    if (index >= 0) {
         int zeroRow = 0;
         //remove it from the list, by shifting all recent docs below it up and clobbering it.
-        for (zeroRow = index; zeroRow < numRecent-1; zeroRow++)
-            myRecentDocs[zeroRow] = myRecentDocs[zeroRow+1];
+        for (zeroRow = index; zeroRow < numRecent - 1; zeroRow++)
+            myRecentDocs[zeroRow] = myRecentDocs[zeroRow + 1];
         myRecentDocs[zeroRow] = "";
     }
     //shift all menus downward.
     for (int i = 8; i > 0; i--)
-        myRecentDocs[i] = myRecentDocs[i-1];
+        myRecentDocs[i] = myRecentDocs[i - 1];
     //insert our new item at the top
     myRecentDocs[0] = newRecent;
     //update the number of recent documents... maybe.
@@ -404,8 +401,7 @@ void Imp_equipmant::addRecent(QString newRecent)
 
 int Imp_equipmant::findRecent(QString search)
 {
-    for (int i = 0; i < 9; i++)
-    {
+    for (int i = 0; i < 9; i++) {
         if (myRecentDocs[i] == search)
             return i;
     }
@@ -414,15 +410,14 @@ int Imp_equipmant::findRecent(QString search)
 
 void Imp_equipmant::openRecent(int recNum)
 {
-    if (myRecentDocs[recNum-1].isEmpty())
+    if (myRecentDocs[recNum - 1].isEmpty())
         return;
 
-    QString fileName = myRecentDocs[recNum-1];
+    QString fileName = myRecentDocs[recNum - 1];
 
     //check if file is already open :)
-    equipTab *tab=0;
-     for (int i=0; i < tabFiles->count(); i++)
-    {
+    equipTab *tab = 0;
+    for (int i = 0; i < tabFiles->count(); i++) {
         tab = (equipTab*)tabFiles->widget(i);
         if (tab->getCurrentFile() == fileName)
         {
@@ -431,7 +426,7 @@ void Imp_equipmant::openRecent(int recNum)
         }
     }
 
-    int newTabNum = tabFiles->addTab(new equipTab(),nameFromPath(fileName));
+    int newTabNum = tabFiles->addTab(new equipTab(), nameFromPath(fileName));
     tabFiles->setCurrentIndex(newTabNum);
     readFile(fileName);
 }
@@ -445,6 +440,9 @@ void Imp_equipmant::modified(void)
     updateTitle();
 }
 
+/**
+ * Hooks up ui changes to model update methods
+ **/
 void Imp_equipmant::setupTabSignals(int tabIndex)
 {
     equipTab *tab = (equipTab *)tabFiles->widget(tabIndex);

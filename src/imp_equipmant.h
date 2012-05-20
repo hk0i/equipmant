@@ -24,7 +24,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QProcess>
+#include <QShortcut>
 #include <QStack>
+
 #include <iostream>
 #include "ui_equipmant.h"
 #include "imp_about.h"
@@ -91,6 +93,12 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             //tabs
             //connect(tabWidget,SIGNAL(currentChanged(int)), this, SLOT(tabText_changed()));
             setupTabSignals(0);
+
+            //setup shortcuts
+            // QShortcut *s = new QShortcut(
+                // QKeySequence(tr("Ctrl+T", "File|New")),
+                // this
+            // );
 
         }
 

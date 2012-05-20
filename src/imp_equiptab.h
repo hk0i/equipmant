@@ -65,6 +65,8 @@ class equipTab : public QWidget, public Ui::equipTab
             int tabSize = txtExtraData->fontMetrics().width(' ') * 4;
             txtExtraData->setTabStopWidth(tabSize);
 
+
+
             myHighlighter = new GScriptHighlighter(txtExtraData->document());
             myPreviewHighlighter = new GScriptHighlighter(txtTextMode->document());
         }
