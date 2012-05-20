@@ -53,12 +53,6 @@ GScriptHighlighter::GScriptHighlighter(QTextDocument *parent)
     }
 
 
-    //comment formatting
-    m_comment_format.setForeground(QColor("#4E9A06"));
-    m_comment_format.setFontItalic(true);
-    rule.pattern = QRegExp("//[^\n]*$");
-    rule.format = m_comment_format;
-    m_highlight_rules << rule;
 
 
     //target formatting
@@ -90,6 +84,13 @@ GScriptHighlighter::GScriptHighlighter(QTextDocument *parent)
     m_echo_format.setForeground(QColor("#c4a000"));
     rule.pattern = QRegExp("(/echo)\\b .*$");
     rule.format = m_echo_format;
+    m_highlight_rules << rule;
+
+    //comment formatting
+    m_comment_format.setForeground(QColor("#4E9A06"));
+    m_comment_format.setFontItalic(true);
+    rule.pattern = QRegExp("//[^\n]*$");
+    rule.format = m_comment_format;
     m_highlight_rules << rule;
 }
 
