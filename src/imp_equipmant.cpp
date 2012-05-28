@@ -454,3 +454,46 @@ void Imp_equipmant::setupTabSignals(int tabIndex)
     QPlainTextEdit *scriptWidget = tab->findChild<QPlainTextEdit *>("txtExtraData");
     connect(scriptWidget, SIGNAL(modificationChanged(bool)), this, SLOT(modified(void)));
 }
+
+void Imp_equipmant::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    switch (reason) {
+
+        case QSystemTrayIcon::Trigger:
+
+            if (this->isVisible()) {
+                //hide window if it is active
+                if (this->isActiveWindow()) {
+                    this->hide();
+                }
+                //raise window when it is covered by other apps
+                else {
+                    this->raise();
+                }
+            }
+            else {
+                this->show();
+                this->raise();
+            }
+
+            break;
+
+        default:
+            break;
+
+    }
+}
+
+void Imp_equipmant::closeEvent(QCloseEvent *event)
+{
+    if (myTrayIcon->isVisible()) {
+        myTrayIcon->showMessage(
+                tr("Still Here!"),
+                tr("Hey, even though you appeared to have closed Equipmant, "
+                   "it is still open. To close Equipmant, right click this tray icon"
+                   "and click it from the menu there.")
+        );
+        this->hide();
+        event->ignore();
+    }
+}

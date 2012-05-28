@@ -26,6 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <QProcess>
 #include <QShortcut>
 #include <QStack>
+#include <QSystemTrayIcon>
 
 #include <iostream>
 #include "ui_equipmant.h"
@@ -94,11 +95,33 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             //connect(tabWidget,SIGNAL(currentChanged(int)), this, SLOT(tabText_changed()));
             setupTabSignals(0);
 
+
             //setup shortcuts
             // QShortcut *s = new QShortcut(
                 // QKeySequence(tr("Ctrl+T", "File|New")),
                 // this
             // );
+
+            //TROLOLO
+            this->setUnifiedTitleAndToolBarOnMac(true);
+
+            //set up system tray icon
+            myTrayMenu = new QMenu();
+            myTrayMenu->addAction(mnuFileQuit);
+
+            myTrayIcon = new QSystemTrayIcon(this);
+            myTrayIcon->setIcon(this->windowIcon());
+            //only show context menu on windows system tray
+            #ifdef Q_OS_WIN
+            myTrayIcon->setContextMenu(myTrayMenu);
+            #endif
+            connect(
+                    myTrayIcon,
+                    SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+                    this,
+                    SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason))
+            );
+            myTrayIcon->show();
 
         }
 
@@ -135,16 +158,21 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         void viewEdit(void);
         void viewOutput(void);
 
-
         //tabs
         void updateTitle(void);                    //updates titlebar
         void modified(void);                    //tab contents gets modified
+
+        //system tray icon
+        void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
+
+    protected:
+        void closeEvent(QCloseEvent *event);
 
     private:
 
         void writeFile(void);
         void writeFile(QString);
-        void readFile(QString);                    //opens file QString
+        void readFile(QString);                 //opens file QString
 
         //files that relate to getting/setting program data
         //these functions deal with getting/saving ALL data to files:
@@ -153,7 +181,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         void loadData(void);                    //loads program data (see above)
 
         //recent file menu stuff
-        void clearRecent(bool);                    //clears the recent files menu. (true clears recent file data.
+        void clearRecent(bool);                 //clears the recent files menu. (true clears recent file data.
                                                 // false only hides the menus.
         void updateRecent(void);                //updates the recent file menu (from myRecentDocs[])
         void addRecent(QString);                //adds a recent item to the menu, checking if it
@@ -164,28 +192,29 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         int findRecent(QString);                //checks to see if a document
                                                 //is already in the recent docs array.
                                                 //returns the index position, -1 if not found.
-        void openRecent(int);                    //opens recent document from myRecentDocs[int-1]
+        void openRecent(int);                   //opens recent document from myRecentDocs[int-1]
                                                 //the number passed is a number 1-9, not 0-8.
-        void addToDataBin(QString);                //adds text to data bin; no endlines added.
+        void addToDataBin(QString);             //adds text to data bin; no endlines added.
         void setupTabSignals(int);              //sets up tab signals for title updating
 
 
-        QString nameFromPath(QString);            //retrieves and returns the filename from an absolute path.
+        QString nameFromPath(QString);          //retrieves and returns the filename from an absolute path.
 
         //variables
-        int numRecent;                            //number of recent docs.
-        QString myLastFileDir;                    //director where last accessed file is located.
+        int numRecent;                          //number of recent docs.
+        QString myLastFileDir;                  //director where last accessed file is located.
         QString myRecentDocs[9];                //stack that stores recently accessed documents.
                                                 // (used for the recent menu)
 
-        QString myEditMode;                        //store the current edit mode:
+        QString myEditMode;                     //store the current edit mode:
                                                 // "Edit Mode"
                                                 //         or
                                                 //     "View Output"
 
-        //extra dialogs
+        //extra widgets
         Imp_about    myAbout;                    //about screen dialog.
-
+        QSystemTrayIcon *myTrayIcon;             //system tray icon
+        QMenu *myTrayMenu;                       //system tray context menu
 };
 
 #endif

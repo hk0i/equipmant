@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Equipmant Equipment Macro Manager</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="equip.qrc">
+    <normaloff>:/img/res/ equip_icon_64.png</normaloff>:/img/res/ equip_icon_64.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
