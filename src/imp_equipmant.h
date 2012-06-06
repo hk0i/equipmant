@@ -36,6 +36,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 #define CTAB equipTab *cTab = (equipTab*) tabFiles->currentWidget();
+#ifdef Q_OS_WIN
+    #define TRAY_ICON_PATH ":/img/equip.ico"
+#else
+    #define TRAY_ICON_PATH ":/img/res/equip_icon_64.png"
+#endif
 
 class equipTab;
 
@@ -107,10 +112,14 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
 
             //set up system tray icon
             myTrayMenu = new QMenu();
+            myTrayMenu->addAction(mnuFileNew);
+            myTrayMenu->addAction(mnuFileOpen);
+            myTrayMenu->addMenu(mnuFileOpenRecent);
+            myTrayMenu->addSeparator();
             myTrayMenu->addAction(mnuFileQuit);
 
             myTrayIcon = new QSystemTrayIcon(this);
-            myTrayIcon->setIcon(this->windowIcon());
+            myTrayIcon->setIcon(QIcon(TRAY_ICON_PATH));
             //only show context menu on windows system tray
             #ifdef Q_OS_WIN
             myTrayIcon->setContextMenu(myTrayMenu);
