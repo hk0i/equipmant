@@ -128,12 +128,8 @@ void Imp_equipmant::fileQuit(void)
 {
     //save program data
     saveData();
-    //clean up tray icon
-    if (myTrayIcon) {
-        delete myTrayIcon;
-    }
-    //quit
-    exit(0);
+    //quit cleanly
+    QApplication::quit();
 }
 
 void Imp_equipmant::fileRecent1(void) { openRecent(1); }
