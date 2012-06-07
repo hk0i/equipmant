@@ -462,6 +462,9 @@ void Imp_equipmant::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
         case QSystemTrayIcon::Trigger:
 
             if (this->isVisible()) {
+
+                //be smart if it's not on windows cause windows can't handle this for some reason
+                #ifndef Q_OS_WIN
                 //hide window if it is active
                 if (this->isActiveWindow()) {
                     this->hide();
@@ -470,10 +473,15 @@ void Imp_equipmant::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
                 else {
                     this->raise();
                 }
+                #else
+                    //just hide on windows, it's dumb that way.
+                    this->hide();
+                #endif
             }
             else {
                 this->show();
                 this->raise();
+                this->activateWindow();
             }
 
             break;

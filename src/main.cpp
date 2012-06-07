@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    
+
     std::cout << "Equipmant V" << EQM_VERSION << " Copyright (C) 2007 Gregory McQuillan" << std::endl
               << "Equipmant comes with ABSOLUTELY NO WARRANTY; for details see the included text file LICENSE" << std:: endl
               << "This is free software, and you are welcome to redistribute it" << std::endl
@@ -32,9 +32,13 @@ int main(int argc, char **argv)
               << "You should have received a copy of the GNU General Public License along" << std::endl
               << "with this program; if not, write to the Free Software Foundation, Inc.," << std::endl
               << "51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA." << std::endl;
-    
+
     Imp_equipmant form;
-    form.show();
+
+    //ghetto getopt, we don't need anything fancy just yet
+    if (argc == 1 && argv[1] != "--hide") {
+        form.show();
+    }
 
     return app.exec();
 }
