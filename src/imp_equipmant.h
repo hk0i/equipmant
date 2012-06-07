@@ -132,6 +132,21 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             );
             myTrayIcon->show();
 
+            //example code for creating startup shortcut
+            //get startup folder path windows
+            /*
+            wchar_t startupFolder[MAX_PATH];
+            HRESULT hr = SHGetFolderPath(0, CSIDL_STARTUP, 0, 0, startupFolder);
+            if (SUCCEEDED(hr)) {
+                QString startupPath = QString::fromWCharArray(startupFolder);
+                qDebug() << startupPath;
+                std::wcout << startupFolder;
+            }
+
+            //create link
+            CoInitialize(NULL);
+            */
+
         }
 
 

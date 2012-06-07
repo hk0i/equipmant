@@ -494,12 +494,21 @@ void Imp_equipmant::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 void Imp_equipmant::closeEvent(QCloseEvent *event)
 {
     if (myTrayIcon->isVisible()) {
-        myTrayIcon->showMessage(
-                tr("Still Here!"),
-                tr("Hey, even though you appeared to have closed Equipmant, "
-                   "it is still open. To close Equipmant, right click this tray icon"
-                   "and click it from the menu there.")
-        );
+        QDir configPath = QDir::toNativeSeparators(QDir::homePath() + "/.equipmant");
+        QFile file(QDir::toNativeSeparators(configPath.absolutePath() + "/.traynotify"));
+        if (!file.exists()) {
+            myTrayIcon->showMessage(
+                    tr("Still Here!"),
+                    tr(
+                       "Hey, even though you appeared to have closed Equipmant, "
+                       "it is still open. To close Equipmant, right click this tray icon "
+                       "and click it from the menu there."
+                    )
+            );
+            file.open(QIODevice::ReadWrite);
+        }
+
+
         this->hide();
         event->ignore();
     }
