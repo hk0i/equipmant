@@ -481,7 +481,6 @@ void Imp_equipmant::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
             else {
                 this->show();
                 this->raise();
-                this->activateWindow();
             }
 
             break;
