@@ -506,6 +506,7 @@ void Imp_equipmant::closeEvent(QCloseEvent *event)
                     )
             );
             file.open(QIODevice::ReadWrite);
+            file.close();
         }
 
 
