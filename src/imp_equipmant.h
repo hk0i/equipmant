@@ -152,17 +152,22 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             QStringList filters;
             filters << "*.equip" << "*.txt";
 
-            QFileSystemModel *model = new QFileSystemModel();
-            model->setRootPath(myLastFileDir);
+            myFSModel = new QFileSystemModel();
+            myFSModel->setRootPath(myLastFileDir);
 
-            tvFileView->setModel(model);
-            tvFileView->setRootIndex(model->index(myLastFileDir));
+            tvFileView->setModel(myFSModel);
+            tvFileView->setRootIndex(myFSModel->index(myLastFileDir));
             //hide size, file type and date modified columns
             tvFileView->setColumnHidden(1, true);
             tvFileView->setColumnHidden(2, true);
             tvFileView->setColumnHidden(3, true);
 
-            connect(tvFileView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(tvFileView_doubleClick(QModelIndex)));
+            connect(
+                tvFileView,
+                SIGNAL(doubleClicked(QModelIndex)),
+                this,
+                SLOT(fileTreeDoubleClicked(QModelIndex))
+            );
         }
 
 
@@ -206,15 +211,17 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
 
         //file view widget
-        void tvFileView_doubleClick(QModelIndex *index);
+        void fileTreeDoubleClicked(const QModelIndex &index);
 
     protected:
         void closeEvent(QCloseEvent *event);
 
     private:
+        QFileSystemModel *myFSModel;
 
         void writeFile(void);
         void writeFile(QString);
+        void openFile(QString);                 //handles file tab opening
         void readFile(QString);                 //opens file QString
 
         //files that relate to getting/setting program data

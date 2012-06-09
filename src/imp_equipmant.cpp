@@ -41,21 +41,8 @@ void Imp_equipmant::fileOpen(void)
     if (fileName.isEmpty())
         return;
 
-    //check if file is already open :)
-    equipTab *tab = 0;
-    for (int i = 0; i < tabFiles->count(); i++) {
-        tab = (equipTab*) tabFiles->widget(i);
-        if (tab->getCurrentFile() == fileName) {
-            tabFiles->setCurrentIndex(i);
-            return;
-        }
-    }
+    openFile(fileName);
 
-    int newTabNum = tabFiles->addTab(new equipTab(), nameFromPath(fileName));
-
-    tabFiles->setCurrentIndex(newTabNum);
-    readFile(fileName);
-    setupTabSignals(newTabNum);
 }
 
 void Imp_equipmant::fileClose(void)
@@ -517,7 +504,28 @@ void Imp_equipmant::closeEvent(QCloseEvent *event)
     }
 }
 
-void Imp_equipmant::tvFileView_doubleClick(QModelIndex *event)
+void Imp_equipmant::fileTreeDoubleClicked(const QModelIndex &index)
 {
-    qDebug() << tvFileView->currentIndex();
+    QString filePath = myFSModel->filePath(index);
+    qDebug() << index.data().toString() << filePath;
+    openFile(filePath);
+}
+
+void Imp_equipmant::openFile(QString fileName)
+{
+    //check if file is already open :)
+    equipTab *tab = 0;
+    for (int i = 0; i < tabFiles->count(); i++) {
+        tab = (equipTab*) tabFiles->widget(i);
+        if (tab->getCurrentFile() == fileName) {
+            tabFiles->setCurrentIndex(i);
+            return;
+        }
+    }
+
+    int newTabNum = tabFiles->addTab(new equipTab(), nameFromPath(fileName));
+
+    tabFiles->setCurrentIndex(newTabNum);
+    readFile(fileName);
+    setupTabSignals(newTabNum);
 }
