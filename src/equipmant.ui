@@ -128,6 +128,7 @@
     </property>
     <addaction name="mnuViewEdit"/>
     <addaction name="mnuViewOutput"/>
+    <addaction name="mnuViewFileBrowser"/>
    </widget>
    <addaction name="menu_File"/>
    <addaction name="menu_View"/>
@@ -167,6 +168,8 @@
    <addaction name="separator"/>
    <addaction name="mnuViewEdit"/>
    <addaction name="mnuViewOutput"/>
+   <addaction name="separator"/>
+   <addaction name="mnuViewFileBrowser"/>
   </widget>
   <action name="mnuFileNew">
    <property name="icon">
@@ -309,6 +312,20 @@
   <action name="mnuViewOutput">
    <property name="text">
     <string>&amp;View Output</string>
+   </property>
+  </action>
+  <action name="mnuViewFileBrowser">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>File &amp;Browser</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
    </property>
   </action>
  </widget>

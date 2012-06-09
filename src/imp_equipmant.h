@@ -89,6 +89,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             //view actions
             connect(mnuViewEdit, SIGNAL(triggered()), this, SLOT(viewEdit()));
             connect(mnuViewOutput, SIGNAL(triggered()), this, SLOT(viewOutput()));
+            connect(mnuViewFileBrowser, SIGNAL(triggered(bool)), this, SLOT(viewFileBrowser(bool)));
 
             //tab widget
             connect(tabFiles, SIGNAL(tabCloseRequested(int)), this, SLOT(fileClose()));
@@ -202,6 +203,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         //View Actions
         void viewEdit(void);
         void viewOutput(void);
+        void viewFileBrowser(bool);
 
         //tabs
         void updateTitle(void);                    //updates titlebar

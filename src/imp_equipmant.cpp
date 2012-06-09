@@ -529,3 +529,23 @@ void Imp_equipmant::openFile(QString fileName)
     readFile(fileName);
     setupTabSignals(newTabNum);
 }
+
+
+void Imp_equipmant::viewFileBrowser(bool checked)
+{
+    //note: the order of when to resize and set min width is different depending
+    //on which way we are sizing.
+    if (checked) {
+        tvFileView->show();
+        //preserve width of the tab widget area
+        this->resize(this->width() + tvFileView->width(), this->height());
+        this->setMinimumWidth(700);
+    }
+    else {
+        tvFileView->hide();
+        this->setMinimumWidth(509);
+        //preserve width of the tab widget area
+        this->resize(this->width() - tvFileView->width(), this->height());
+    }
+}
+
