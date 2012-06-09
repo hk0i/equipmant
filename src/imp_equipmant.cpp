@@ -223,10 +223,10 @@ void Imp_equipmant::updateTitle(void)
     //update tab title on changes
     int currentIndex = tabFiles->currentIndex();
     QString currentText = tabFiles->tabText(currentIndex);
-    if (cTab->getModified() && currentText.right(2) != " *") {
+    if (cTab->isModified() && currentText.right(2) != " *") {
         tabFiles->setTabText(currentIndex, currentText + " *");
     }
-    if (!cTab->getModified() && currentText.right(2) == " *") {
+    if (!cTab->isModified() && currentText.right(2) == " *") {
         currentText.chop(2);
         tabFiles->setTabText(currentIndex, currentText);
     }
@@ -517,7 +517,14 @@ void Imp_equipmant::openFile(QString fileName)
     equipTab *tab = 0;
     for (int i = 0; i < tabFiles->count(); i++) {
         tab = (equipTab*) tabFiles->widget(i);
-        if (tab->getCurrentFile() == fileName) {
+        //try to open file in first unsaved blank tab
+        if (tab->getCurrentFile().isNull() && !tab->isModified()) {
+            tabFiles->setCurrentIndex(i);
+            tabFiles->setTabText(i, nameFromPath(fileName));
+            readFile(fileName);
+            return;
+        }
+        else if (tab->getCurrentFile() == fileName) {
             tabFiles->setCurrentIndex(i);
             return;
         }

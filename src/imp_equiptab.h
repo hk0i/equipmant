@@ -77,7 +77,7 @@ class equipTab : public QWidget, public Ui::equipTab
         void setCurrentFile(QString);           //sets the current file name.
         QString getCurrentFile(void);           //returns current file name.
 
-        bool getModified(void) const;           //returns whether or not file is modified
+        bool isModified(void) const;           //returns whether or not file is modified
 
 
     public slots:

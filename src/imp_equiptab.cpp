@@ -239,4 +239,4 @@ void equipTab::writeFile(QString filename)
 }
 
 void equipTab::setModified(bool modified) { myModified = modified; }
-bool equipTab::getModified(void) const { return myModified; }
+bool equipTab::isModified(void) const { return myModified; }
