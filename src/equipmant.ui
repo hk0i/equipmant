@@ -166,10 +166,10 @@
    <addaction name="mnuFileSave"/>
    <addaction name="mnuFileSaveAs"/>
    <addaction name="separator"/>
+   <addaction name="mnuViewFileBrowser"/>
+   <addaction name="separator"/>
    <addaction name="mnuViewEdit"/>
    <addaction name="mnuViewOutput"/>
-   <addaction name="separator"/>
-   <addaction name="mnuViewFileBrowser"/>
   </widget>
   <action name="mnuFileNew">
    <property name="icon">
@@ -320,6 +320,10 @@
    </property>
    <property name="checked">
     <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="equip.qrc">
+     <normaloff>:/img/res/Folders-Explorer-32.png</normaloff>:/img/res/Folders-Explorer-32.png</iconset>
    </property>
    <property name="text">
     <string>File &amp;Browser</string>
