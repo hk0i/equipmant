@@ -494,6 +494,8 @@ void Imp_equipmant::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 void Imp_equipmant::closeEvent(QCloseEvent *event)
 {
     if (myTrayIcon->isVisible()) {
+        //this is corny but I will leave refactoring the settings code for
+        //another day.
         QDir configPath = QDir::toNativeSeparators(QDir::homePath() + "/.equipmant");
         QFile file(QDir::toNativeSeparators(configPath.absolutePath() + "/.traynotify"));
         if (!file.exists()) {

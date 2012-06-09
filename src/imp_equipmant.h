@@ -27,6 +27,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <QShortcut>
 #include <QStack>
 #include <QSystemTrayIcon>
+#include <QFileSystemModel>
+#include <QTreeView>
 
 #include <iostream>
 #include "ui_equipmant.h"
@@ -147,6 +149,20 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             CoInitialize(NULL);
             */
 
+            QStringList filters;
+            filters << "*.equip" << "*.txt";
+
+            QFileSystemModel *model = new QFileSystemModel();
+            model->setRootPath(myLastFileDir);
+
+            myDrawer = new QTreeView(this);
+            myDrawer->setModel(model);
+            myDrawer->setRootIndex(model->index(myLastFileDir));
+            myDrawer->resize(200, this->size().height());
+            myDrawer->setWindowFlags(Qt::Drawer);
+            myDrawer->show();
+
+
         }
 
 
@@ -236,9 +252,10 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
                                                 //     "View Output"
 
         //extra widgets
-        Imp_about    myAbout;                    //about screen dialog.
-        QSystemTrayIcon *myTrayIcon;             //system tray icon
-        QMenu *myTrayMenu;                       //system tray context menu
+        QTreeView *myDrawer;                      //drawer widget for file tree
+        Imp_about    myAbout;                   //about screen dialog.
+        QSystemTrayIcon *myTrayIcon;            //system tray icon
+        QMenu *myTrayMenu;                      //system tray context menu
 };
 
 #endif
