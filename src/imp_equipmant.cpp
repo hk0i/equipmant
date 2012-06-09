@@ -516,3 +516,8 @@ void Imp_equipmant::closeEvent(QCloseEvent *event)
         event->ignore();
     }
 }
+
+void Imp_equipmant::tvFileView_doubleClick(QModelIndex *event)
+{
+    qDebug() << tvFileView->currentIndex();
+}

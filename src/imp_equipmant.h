@@ -155,14 +155,14 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             QFileSystemModel *model = new QFileSystemModel();
             model->setRootPath(myLastFileDir);
 
-            myDrawer = new QTreeView(this);
-            myDrawer->setModel(model);
-            myDrawer->setRootIndex(model->index(myLastFileDir));
-            myDrawer->resize(200, this->size().height());
-            myDrawer->setWindowFlags(Qt::Drawer);
-            myDrawer->show();
+            tvFileView->setModel(model);
+            tvFileView->setRootIndex(model->index(myLastFileDir));
+            //hide size, file type and date modified columns
+            tvFileView->setColumnHidden(1, true);
+            tvFileView->setColumnHidden(2, true);
+            tvFileView->setColumnHidden(3, true);
 
-
+            connect(tvFileView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(tvFileView_doubleClick(QModelIndex)));
         }
 
 
@@ -204,6 +204,9 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
 
         //system tray icon
         void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
+
+        //file view widget
+        void tvFileView_doubleClick(QModelIndex *index);
 
     protected:
         void closeEvent(QCloseEvent *event);
@@ -252,7 +255,6 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
                                                 //     "View Output"
 
         //extra widgets
-        QTreeView *myDrawer;                      //drawer widget for file tree
         Imp_about    myAbout;                   //about screen dialog.
         QSystemTrayIcon *myTrayIcon;            //system tray icon
         QMenu *myTrayMenu;                      //system tray context menu
