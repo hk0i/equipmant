@@ -18,6 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define __IMP_ABOUT_H
 
 #include <iostream>
+#include <QDate>
 #include "ui_about.h"
 #include "equipmant.h"
 
@@ -30,7 +31,8 @@ class Imp_about: public QDialog, Ui::dlgAbout
         {
             setupUi(this);
             //add the version # to the about "screen"
-            label_17->setText(label_17->text().replace("$EQM_VERSION",EQM_VERSION));
+            lblVersion->setText(lblVersion->text().replace("$EQM_VERSION", EQM_VERSION));
+            lblVersion->setText(lblVersion->text().replace("$EQM_BUILD", EQM_BUILD));
         }
 
     private slots:
