@@ -20,9 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define __EQUIPMANT_H
 
 #define EQM_VERSION "4.0b"
-//note that the date format here has an extra space before d to leave a
-//placeholder for days that take two digits.
-#define EQM_BUILD QDate::fromString(__DATE__, "MMM  d yyyy").toString("yyyyMMdd")
+#define EQM_BUILD QDate::fromString(QString(__DATE__).simplified(), "MMM d yyyy").toString("yyyyMMdd")
 
 #define COMMENT strOut << "//";
 

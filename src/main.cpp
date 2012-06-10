@@ -15,13 +15,15 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include <QApplication>
+#include <QtCore>
 #include "imp_equipmant.h"
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
 
-    std::cout << "Equipmant V" << EQM_VERSION << " Copyright (C) 2007 Gregory McQuillan" << std::endl
+    std::cout << "Equipmant V" << EQM_VERSION << " Build " << EQM_BUILD.toStdString().c_str()
+              << " Copyright (C) 2007 Gregory McQuillan" << std::endl
               << "Equipmant comes with ABSOLUTELY NO WARRANTY; for details see the included text file LICENSE" << std:: endl
               << "This is free software, and you are welcome to redistribute it" << std::endl
               << "Under certain conditions; see LICENSE for more information." << std::endl << std:: endl
@@ -36,7 +38,7 @@ int main(int argc, char **argv)
     Imp_equipmant form;
 
     //ghetto getopt, we don't need anything fancy just yet
-    if (argc == 1 && argv[1] != "--hide") {
+    if (!(argc > 1 && QString(argv[1]) == "--hide")) {
         form.show();
     }
 
