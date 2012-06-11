@@ -1,0 +1,2 @@
+map <D-d> :wall<CR>:make && open equip.app<CR>
+map <D-r> :!open equip.app<CR>
