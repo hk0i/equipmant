@@ -180,8 +180,11 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             tvFileView->setColumnHidden(2, true);
             tvFileView->setColumnHidden(3, true);
 
+            //hide the buttons that are not yet implemented
+            //@TODO: implement these.
             tbFBDown->hide();
-
+            tbFBAdd->hide();
+            tbFBRemove->hide();
 
         }
 
