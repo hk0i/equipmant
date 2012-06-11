@@ -7,6 +7,7 @@ TARGET = equip
 DEPENDPATH += . model model/tests
 INCLUDEPATH += . model model/tests
 
+
 # Input
 HEADERS += equipmant.h \
            imp_about.h \
@@ -33,6 +34,7 @@ SOURCES += imp_about.cpp \
            ui/GScriptHighlighter.cpp
 RESOURCES += equip.qrc
 RC_FILE = equip.rc
+ICON = equip.icns
 
 OTHER_FILES += \
     items.txt
