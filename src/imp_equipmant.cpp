@@ -513,6 +513,9 @@ void Imp_equipmant::fileTreeDoubleClicked(const QModelIndex &index)
     if (!myFSModel->isDir(index)) {
         openFile(filePath);
     }
+    else {
+        tvFileView->setRootIndex(index);
+    }
 }
 
 void Imp_equipmant::openFile(QString fileName)
@@ -548,16 +551,22 @@ void Imp_equipmant::viewFileBrowser(bool checked)
     //note: the order of when to resize and set min width is different depending
     //on which way we are sizing.
     if (checked) {
-        tvFileView->show();
+        fileBrowser->show();
         //preserve width of the tab widget area
         this->resize(this->width() + tvFileView->width(), this->height());
-        this->setMinimumWidth(700);
+        this->setMinimumWidth(715);
     }
     else {
-        tvFileView->hide();
+        fileBrowser->hide();
         this->setMinimumWidth(509);
         //preserve width of the tab widget area
         this->resize(this->width() - tvFileView->width(), this->height());
     }
 }
 
+void Imp_equipmant::fbUp_clicked(void)
+{
+    tvFileView->setRootIndex(
+        tvFileView->rootIndex().parent()
+    );
+}

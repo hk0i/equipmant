@@ -150,28 +150,39 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             CoInitialize(NULL);
             */
 
-            QStringList filters;
-            filters << "*.equip" << "*.txt";
-
-            myFSModel = new QFileSystemModel();
-            myFSModel->setRootPath(myLastFileDir);
-            myFSModel->setNameFilters(filters);
-            myFSModel->setNameFilterDisables(false);
-
-            tvFileView->setModel(myFSModel);
-            tvFileView->setRootIndex(myFSModel->index(myLastFileDir));
-            //hide size, file type and date modified columns
-            tvFileView->setColumnHidden(1, true);
-            tvFileView->setColumnHidden(2, true);
-            tvFileView->setColumnHidden(3, true);
-
-
+            connect(
+                tbFBUp,
+                SIGNAL(clicked()),
+                this,
+                SLOT(fbUp_clicked())
+            );
             connect(
                 tvFileView,
                 SIGNAL(doubleClicked(QModelIndex)),
                 this,
                 SLOT(fileTreeDoubleClicked(QModelIndex))
             );
+
+            QStringList filters;
+            filters << "*.equip" << "*.txt";
+
+            myFSModel = new QFileSystemModel();
+            myFSModel->setRootPath(myLastFileDir);
+            myFSModel->setNameFilters(filters);
+            //hide filtered files instead of graying them out
+            myFSModel->setNameFilterDisables(false);
+
+            tvFileView->setModel(myFSModel);
+            lblFBDirectory->setText(myLastFileDir);
+            tvFileView->setRootIndex(myFSModel->index(myLastFileDir));
+            //hide size, file type and date modified columns
+            tvFileView->setColumnHidden(1, true);
+            tvFileView->setColumnHidden(2, true);
+            tvFileView->setColumnHidden(3, true);
+
+            tbFBDown->hide();
+
+
         }
 
 
@@ -217,6 +228,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
 
         //file view widget
         void fileTreeDoubleClicked(const QModelIndex &index);
+        void fbUp_clicked(void);
 
     protected:
         void closeEvent(QCloseEvent *event);
