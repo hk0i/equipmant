@@ -155,6 +155,8 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
 
             myFSModel = new QFileSystemModel();
             myFSModel->setRootPath(myLastFileDir);
+            myFSModel->setNameFilters(filters);
+            myFSModel->setNameFilterDisables(false);
 
             tvFileView->setModel(myFSModel);
             tvFileView->setRootIndex(myFSModel->index(myLastFileDir));
