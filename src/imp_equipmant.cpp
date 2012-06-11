@@ -38,8 +38,9 @@ void Imp_equipmant::fileOpen(void)
         "Equipment Macros (*.txt *.equip)"
     );
 
-    if (fileName.isEmpty())
+    if (fileName.isEmpty()) {
         return;
+    }
 
     openFile(fileName);
 
@@ -508,11 +509,15 @@ void Imp_equipmant::fileTreeDoubleClicked(const QModelIndex &index)
 {
     QString filePath = myFSModel->filePath(index);
     qDebug() << index.data().toString() << filePath;
-    openFile(filePath);
+    //don't try to open a directory (from filebrowser)
+    if (!myFSModel->isDir(index)) {
+        openFile(filePath);
+    }
 }
 
 void Imp_equipmant::openFile(QString fileName)
 {
+
     //check if file is already open :)
     equipTab *tab = 0;
     for (int i = 0; i < tabFiles->count(); i++) {

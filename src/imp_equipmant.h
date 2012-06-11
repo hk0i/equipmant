@@ -163,6 +163,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             tvFileView->setColumnHidden(2, true);
             tvFileView->setColumnHidden(3, true);
 
+
             connect(
                 tvFileView,
                 SIGNAL(doubleClicked(QModelIndex)),
