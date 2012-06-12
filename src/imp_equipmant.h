@@ -182,10 +182,8 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
 
             //hide the buttons that are not yet implemented
             //@TODO: implement these.
-            tbFBDown->hide();
             tbFBAdd->hide();
             tbFBRemove->hide();
-
 
         }
 
