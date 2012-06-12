@@ -69,6 +69,11 @@ class equipTab : public QWidget, public Ui::equipTab
 
             myHighlighter = new GScriptHighlighter(txtExtraData->document());
             myPreviewHighlighter = new GScriptHighlighter(txtTextMode->document());
+
+            //set editor font
+            #ifdef Q_OS_WIN
+            txtExtraData->setFont(QFont("Lucida Console", 10));
+            #endif
         }
 
 
