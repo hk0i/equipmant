@@ -92,7 +92,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             connect(mnuViewFileBrowser, SIGNAL(triggered(bool)), this, SLOT(viewFileBrowser(bool)));
 
             //tab widget
-            connect(tabFiles, SIGNAL(tabCloseRequested(int)), this, SLOT(fileClose()));
+            connect(tabFiles, SIGNAL(tabCloseRequested(int)), this, SLOT(fileClose(int)));
 
             //buttons
             //connect(pbWriteFile,SIGNAL(clicked()), this, SLOT(writeFile_clicked()));
@@ -186,6 +186,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
             tbFBAdd->hide();
             tbFBRemove->hide();
 
+
         }
 
 
@@ -194,7 +195,7 @@ class Imp_equipmant: public QMainWindow, Ui::MainWindow
         //menus
         void fileNew(void);
         void fileOpen(void);
-        void fileClose(void);
+        void fileClose(int);
 
         void fileSave(void);
         void fileSaveAs(void);

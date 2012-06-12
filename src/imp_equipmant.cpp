@@ -46,9 +46,9 @@ void Imp_equipmant::fileOpen(void)
 
 }
 
-void Imp_equipmant::fileClose(void)
+void Imp_equipmant::fileClose(int tab)
 {
-    CTAB
+    equipTab *cTab = (equipTab*) tabFiles->widget(tab);
     if (!cTab) {
         return;
     }
@@ -63,7 +63,7 @@ void Imp_equipmant::fileClose(void)
     cTab->setCurrentFile("");
 
     // **** WARNING - I THINK THE ACTUAL WIDGETS NEED TO BE REMOVED ALSO ****
-    tabFiles->removeTab(tabFiles->currentIndex());
+    tabFiles->removeTab(tab);
     // **** WARNING - I THINK THE ACTUAL WIDGETS NEED TO BE REMOVED ALSO ****
 }
 
